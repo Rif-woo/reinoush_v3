@@ -4,11 +4,10 @@ import HomeButton from "./ui/Button";
 
 export default function HeroSection(){
     return (
-        <div className="w-full flex flex-col justify-center items-center gap-18">
+        <div className="w-full flex flex-col justify-center items-center gap-17">
 
             <NavBar></NavBar>
             
-            {/* <div className="h-[80px]"></div> */}
 
             <div className="w-full flex flex-col justify-center items-center gap-15">
                
@@ -18,7 +17,6 @@ export default function HeroSection(){
 
                 </div>
 
-                {/* <div className="h-[50px]"></div> */}
 
                 <div className="relative flex justify-center items-center">
                     <div className="relative left-13 w-[230px] h-[400px] -rotate-12 rounded-lg border-1 border-gray-300 bg-black">
