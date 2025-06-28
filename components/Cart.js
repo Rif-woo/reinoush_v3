@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { useCart } from '@/contexts/CartContext';
+import PaymentModal from './PaymentModal';
 
 export default function Cart({ isOpen, onClose }) {
   const { 
@@ -13,6 +14,13 @@ export default function Cart({ isOpen, onClose }) {
     removeItem, 
     clearCart 
   } = useCart();
+  
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+  
+  const handlePaymentSuccess = () => {
+    setIsPaymentModalOpen(false);
+    onClose(); // Fermer aussi le panier
+  };
 
   if (!isOpen) return null;
 
@@ -83,7 +91,10 @@ export default function Cart({ isOpen, onClose }) {
               </div>
               
               <div className="space-y-2">
-                <button className="w-full bg-black text-white py-3 px-4 rounded-md font-medium hover:bg-gray-800 transition-colors">
+                <button 
+                  onClick={() => setIsPaymentModalOpen(true)}
+                  className="w-full bg-black text-white py-3 px-4 rounded-md font-medium hover:bg-gray-800 transition-colors"
+                >
                   Procéder au paiement
                 </button>
                 
@@ -98,6 +109,13 @@ export default function Cart({ isOpen, onClose }) {
           )}
         </div>
       </div>
+      
+      {/* Modal de paiement */}
+      <PaymentModal 
+        isOpen={isPaymentModalOpen}
+        onClose={() => setIsPaymentModalOpen(false)}
+        onSuccess={handlePaymentSuccess}
+      />
     </div>
   );
 }
