@@ -25,7 +25,7 @@ export default function Cart({ isOpen, onClose }) {
       />
       
       {/* Panel du panier */}
-      <div className="absolute right-0 top-0 h-full w-full max-w-md bg-[#FCFAF5] shadow-xl">
+      <div className="absolute right-0 top-0 h-full w-full max-w-sm sm:max-w-md bg-[#FCFAF5] shadow-xl">
         <div className="flex h-full flex-col">
           {/* Header */}
           <div className="flex items-center justify-between border-b border-gray-200 p-4">

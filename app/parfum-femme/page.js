@@ -39,21 +39,23 @@ export default function ParfumFemmePage() {
   const allProducts = filteredProducts;
 
   return (
-    <div className="w-full p-5 pb-20 min-h-screen bg-[#FCFAF5]">
+    <div className="min-h-screen bg-[#FCFAF5] px-4 sm:px-6 lg:px-8">
       <NavBar />
       
       {/* Ligne décorative */}
-        <HeroSectionSeparator></HeroSectionSeparator>
+        {/* <HeroSectionSeparator></HeroSectionSeparator> */}
    
 
       {/* Header de la page */}
-      <div className="text-center py-12">
-        <h1 className="text-4xl font-bold text-black mb-4">Parfums Femme</h1>
-        <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-          Découvrez notre collection exclusive de parfums féminins, créés avec<br />
+      <div className="text-center py-8 sm:py-12 px-4">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-4">Parfums Femme</h1>
+        <p className="text-base sm:text-lg text-gray-700 max-w-2xl sm:max-w-3xl mx-auto leading-relaxed">
+          Découvrez notre collection exclusive de parfums féminins, créés avec
+          <span className="hidden sm:inline"><br /></span>
+          <span className="sm:hidden"> </span>
           passion pour révéler votre élégance naturelle.
         </p>
-        <div className="w-24 h-px bg-black mx-auto mt-6"></div>
+        <div className="w-16 sm:w-24 h-px bg-black mx-auto mt-4 sm:mt-6"></div>
       </div>
 
       {/* Filtres */}

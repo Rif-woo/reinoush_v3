@@ -39,11 +39,11 @@ export default function ParfumHommePage() {
   const allProducts = filteredProducts;
 
   return (
-    <div className="w-full p-5 pb-20 min-h-screen bg-[#FCFAF5]">
+    <div className="min-h-screen bg-[#FCFAF5] px-4 sm:px-6 lg:px-8">
       <NavBar />
       
       {/* Ligne décorative */}
-          <HeroSectionSeparator></HeroSectionSeparator>
+          {/* <HeroSectionSeparator></HeroSectionSeparator> */}
      
 
       {/* Header de la page */}

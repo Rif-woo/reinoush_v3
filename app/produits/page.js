@@ -39,32 +39,34 @@ export default function ProduitsPage() {
   const allProducts = filteredProducts;
 
   return (
-    <div className="w-full p-5 pb-20 min-h-screen bg-[#FCFAF5]">
+    <div className="min-h-screen bg-[#FCFAF5] px-4 sm:px-6 lg:px-8">
       <NavBar />
       
       {/* Ligne décorative */}
-     <HeroSectionSeparator></HeroSectionSeparator>
+     {/* <HeroSectionSeparator></HeroSectionSeparator> */}
 
       {/* Header de la page */}
-      <div className="text-center py-12">
-        <h1 className="text-4xl font-bold text-black mb-4">Tous nos Produits</h1>
-        <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-          Découvrez l'intégralité de notre collection de parfums d'exception, créés avec<br />
+      <div className="text-center py-8 sm:py-12 px-4">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-4">Tous nos Produits</h1>
+        <p className="text-base sm:text-lg text-gray-700 max-w-2xl sm:max-w-3xl mx-auto leading-relaxed">
+          Découvrez l'intégralité de notre collection de parfums d'exception, créés avec
+          <span className="hidden sm:inline"><br /></span>
+          <span className="sm:hidden"> </span>
           passion pour révéler votre personnalité unique.
         </p>
-        <div className="w-24 h-px bg-black mx-auto mt-6"></div>
+        <div className="w-16 sm:w-24 h-px bg-black mx-auto mt-4 sm:mt-6"></div>
       </div>
 
       {/* Filtres */}
-      <div className="max-w-6xl mx-auto px-4 mb-8">
-        <div className="flex flex-wrap gap-4 justify-center mb-6">
+      <div className="max-w-6xl mx-auto px-4 mb-6 sm:mb-8">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-6">
           {/* Filtre par prix */}
-          <div className="flex items-center gap-2">
-            <label className="text-sm font-medium text-gray-700">Prix:</label>
+          <div className="flex items-center gap-2 w-full sm:w-auto">
+            <label className="text-sm font-medium text-gray-700 min-w-max">Prix:</label>
             <select 
               value={priceFilter} 
               onChange={(e) => setPriceFilter(e.target.value)}
-              className="border border-gray-300 rounded-md px-3 py-1 text-sm bg-white"
+              className="border border-gray-300 rounded-md px-3 py-2 text-sm bg-white flex-1 sm:flex-none min-w-[140px]"
             >
               <option value="all">Tous les prix</option>
               <option value="3000">3000 Fcfa</option>
@@ -73,12 +75,12 @@ export default function ProduitsPage() {
           </div>
 
           {/* Filtre par volume */}
-          <div className="flex items-center gap-2">
-            <label className="text-sm font-medium text-gray-700">Volume:</label>
+          <div className="flex items-center gap-2 w-full sm:w-auto">
+            <label className="text-sm font-medium text-gray-700 min-w-max">Volume:</label>
             <select 
               value={volumeFilter} 
               onChange={(e) => setVolumeFilter(e.target.value)}
-              className="border border-gray-300 rounded-md px-3 py-1 text-sm bg-white"
+              className="border border-gray-300 rounded-md px-3 py-2 text-sm bg-white flex-1 sm:flex-none min-w-[140px]"
             >
               <option value="all">Tous les volumes</option>
               <option value="30ml">30ml</option>
@@ -144,19 +146,19 @@ export default function ProduitsPage() {
           
         </div>
         
-        <div className="flex flex-wrap gap-6">
+        <div className="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-6">
           {allProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              productName={product.name}
-              productImage={product.image}
-              productPrice={product.price}
-              ProductType={product.type}
-              ProductVolume={product.volume}
-              isNew={product.isNew}
-              isHomePage={false}
-            />
-
+            <div key={product.id} className="flex-shrink-0">
+              <ProductCard
+                productName={product.name}
+                productImage={product.image}
+                productPrice={product.price}
+                ProductType={product.type}
+                ProductVolume={product.volume}
+                isNew={product.isNew}
+                isHomePage={false}
+              />
+            </div>
           ))}
         </div>
       </div>

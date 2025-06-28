@@ -40,7 +40,7 @@ export default function ProductCard({
     };
 
     return (
-        <div className={`flex flex-col ${isHomePage ? 'w-[350px] h-[550px]' : 'w-[250px] h-[350px]'} `}>
+        <div className={`flex flex-col ${isHomePage ? 'w-[280px] sm:w-[320px] lg:w-[350px] h-[450px] sm:h-[500px] lg:h-[550px]' : 'w-[200px] sm:w-[220px] lg:w-[250px] h-[280px] sm:h-[320px] lg:h-[350px]'} mx-auto`}>
             <div className="relative w-full h-full p-3 bg-black flex">
                 <div className="w-full flex justify-between">
                     {isNew && (
