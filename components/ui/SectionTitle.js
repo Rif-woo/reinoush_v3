@@ -21,7 +21,7 @@ export default function SectionTitle({ title, seeAll}) {
                 <>
                     <div className="w-3 h-1 bg-black"></div>
 
-                    <Link href="/">
+                    <Link href="/produits">
                         <p className="underline text-xl cursor-pointer">Voir Tout</p>
                     </Link> 
                 

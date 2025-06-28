@@ -1,6 +1,8 @@
 import NavBar from "./NavBar";
 import Image from "next/image";
 import HomeButton from "./ui/Button";
+import SplitText from "@/blocks/TextAnimations/SplitText/SplitText";
+
 
 export default function HeroSection(){
     return (
@@ -12,8 +14,20 @@ export default function HeroSection(){
             <div className="w-full flex flex-col justify-center items-center gap-15">
                
                 <div className="w-full flex justify-center items-center">
-                    <h1 className="w-[600px] text-center text-4xl/relaxed">Plongez dans l'univers
-                    envoûtant de nos parfums</h1>
+                   <SplitText
+                        text="Plongez dans l'univers
+                    envoûtant de nos parfums"
+                         className="w-[650px] text-center text-4xl/normal"
+                        delay={100}
+                        duration={0.9}
+                        ease="power3.out"
+                        splitType="words"
+                        from={{ opacity: 0, y: 40 }}
+                        to={{ opacity: 1, y: 0 }}
+                        threshold={0.1}
+                        rootMargin="-100px"
+                        textAlign="center"
+                   />
 
                 </div>
 

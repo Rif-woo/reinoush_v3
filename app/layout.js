@@ -1,5 +1,7 @@
 import { Anonymous_Pro } from "next/font/google";
 import "./globals.css";
+import { CartProvider } from '@/contexts/CartContext';
+import { CartNotificationProvider } from '@/contexts/CartNotificationContext';
 
 
 
@@ -21,7 +23,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${anonymous.variable} antialiased`}
       >
-        {children}
+        <CartProvider>
+          <CartNotificationProvider>
+            {children}
+          </CartNotificationProvider>
+        </CartProvider>
       </body>
     </html>
   );

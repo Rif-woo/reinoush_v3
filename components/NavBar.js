@@ -1,7 +1,15 @@
-import Link from "next/link"
+"use client";
+
+import Link from "next/link";
+import { useState } from 'react';
+import CartIcon from './CartIcon';
+import Cart from './Cart';
 
 export default function NavBar(){
+    const [isCartOpen, setIsCartOpen] = useState(false);
+    
     return(
+        <>
         <nav className="w-full flex justify-center items-center">
 
                 <div className="w-1/2 flex justify-around items-center">
@@ -13,18 +21,18 @@ export default function NavBar(){
                     </Link>
 
                     <Link 
-                        href=""
+                        href="/parfum-homme"
                         className="text-black text-xl"
                     >
                         Parfum Homme
                     </Link>
 
                     <Link 
-                        href=""
+                        href="/parfum-femme"
                         className="text-black text-xl"
                     >
                         Parfum Femme
-                    </Link> 
+                    </Link>
                 </div>
 
                 <Link 
@@ -36,7 +44,7 @@ export default function NavBar(){
 
                 <div className="w-1/2 flex justify-around items-center">
                     <Link 
-                        href=""
+                        href="/produits"
                         className="text-black text-xl"
                     >
                         Produits
@@ -56,8 +64,19 @@ export default function NavBar(){
                     >
                         Contact
                     </Link>
+                    
+                    <CartIcon 
+                        onClick={() => setIsCartOpen(true)}
+                        className="ml-4"
+                    />
                 </div>
 
         </nav>
+        
+        <Cart 
+            isOpen={isCartOpen}
+            onClose={() => setIsCartOpen(false)}
+        />
+        </>
     )
 }

@@ -3,28 +3,28 @@
 import { useState } from 'react';
 import NavBar from '@/components/NavBar';
 import ProductCard from '@/components/ui/ProductCard';
-import SectionTitle from '@/components/ui/SectionTitle';
 import HeroSectionSeparator from '@/components/ui/separator';
+import SectionTitle from '@/components/ui/SectionTitle';
 
-// Données de test pour les produits
-const productsData = [
+// Données des parfums femme
+const femmeProductsData = [
   { id: 1, name: "Grace", image: "/Grace50.PNG", price: "5000 Fcfa", type: "Femme", volume: "50ml", category: "bestseller" },
   { id: 2, name: "Grace", image: "/Grace50.PNG", price: "3000 Fcfa", type: "Femme", volume: "30ml", category: "bestseller" },
   { id: 3, name: "Grace", image: "/Grace50.PNG", price: "5000 Fcfa", type: "Femme", volume: "50ml", category: "nouveau", isNew: true },
   { id: 4, name: "Grace", image: "/Grace50.PNG", price: "3000 Fcfa", type: "Femme", volume: "30ml", category: "nouveau", isNew: true },
   { id: 5, name: "Grace", image: "/Grace50.PNG", price: "5000 Fcfa", type: "Femme", volume: "50ml", category: "all" },
-  { id: 6, name: "Mighty", image: "/Mighty50.PNG", price: "5000 Fcfa", type: "Homme", volume: "50ml", category: "all" },
-  { id: 7, name: "Mighty", image: "/Mighty50.PNG", price: "3000 Fcfa", type: "Homme", volume: "30ml", category: "all" },
+  { id: 6, name: "Grace", image: "/Grace50.PNG", price: "3000 Fcfa", type: "Femme", volume: "30ml", category: "all" },
+  { id: 7, name: "Grace", image: "/Grace50.PNG", price: "5000 Fcfa", type: "Femme", volume: "50ml", category: "all" },
   { id: 8, name: "Grace", image: "/Grace50.PNG", price: "3000 Fcfa", type: "Femme", volume: "30ml", category: "all" },
   { id: 9, name: "Grace", image: "/Grace50.PNG", price: "5000 Fcfa", type: "Femme", volume: "50ml", category: "all" },
 ];
 
-export default function ProduitsPage() {
+export default function ParfumFemmePage() {
   const [priceFilter, setPriceFilter] = useState('all');
   const [volumeFilter, setVolumeFilter] = useState('all');
 
   // Filtrer les produits
-  const filteredProducts = productsData.filter(product => {
+  const filteredProducts = femmeProductsData.filter(product => {
     const priceMatch = priceFilter === 'all' || 
       (priceFilter === '3000' && product.price.includes('3000')) ||
       (priceFilter === '5000' && product.price.includes('5000'));
@@ -34,8 +34,8 @@ export default function ProduitsPage() {
   });
 
   // Séparer les produits par catégorie pour l'affichage
-  const bestSellers = productsData.filter(p => p.category === 'bestseller');
-  const nouveautes = productsData.filter(p => p.category === 'nouveau');
+  const bestSellers = femmeProductsData.filter(p => p.category === 'bestseller');
+  const nouveautes = femmeProductsData.filter(p => p.category === 'nouveau');
   const allProducts = filteredProducts;
 
   return (
@@ -43,14 +43,15 @@ export default function ProduitsPage() {
       <NavBar />
       
       {/* Ligne décorative */}
-     <HeroSectionSeparator></HeroSectionSeparator>
+        <HeroSectionSeparator></HeroSectionSeparator>
+   
 
       {/* Header de la page */}
       <div className="text-center py-12">
-        <h1 className="text-4xl font-bold text-black mb-4">Tous nos Produits</h1>
+        <h1 className="text-4xl font-bold text-black mb-4">Parfums Femme</h1>
         <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-          Découvrez l'intégralité de notre collection de parfums d'exception, créés avec<br />
-          passion pour révéler votre personnalité unique.
+          Découvrez notre collection exclusive de parfums féminins, créés avec<br />
+          passion pour révéler votre élégance naturelle.
         </p>
         <div className="w-24 h-px bg-black mx-auto mt-6"></div>
       </div>
@@ -91,7 +92,8 @@ export default function ProduitsPage() {
       {/* Section Nos Best Sellers */}
       <div className="max-w-6xl mx-auto px-4 py-8">
         <div className="flex items-center gap-3 mb-8">
-         <SectionTitle title="Nos Best Sellers" seeAll={false}></SectionTitle>
+          <SectionTitle title="Nos Best Sellers" seeAll={false}></SectionTitle>
+          
         </div>
         
         <div className="flex gap-6 overflow-x-auto pb-4">
@@ -105,6 +107,7 @@ export default function ProduitsPage() {
                 ProductVolume={product.volume}
                 isNew={product.isNew}
                 isHomePage={false}
+
               />
             </div>
           ))}
@@ -114,9 +117,8 @@ export default function ProduitsPage() {
       {/* Section Nouveautés */}
       <div className="max-w-6xl mx-auto px-4 py-8">
         <div className="flex items-center gap-3 mb-8">
-
-       <SectionTitle title="Nouveautés" seeAll={false}></SectionTitle>
-
+          <SectionTitle title="Nouveautés" seeAll={false}></SectionTitle>
+          
         </div>
         
         <div className="flex gap-6 overflow-x-auto pb-4">
@@ -130,6 +132,7 @@ export default function ProduitsPage() {
                 ProductVolume={product.volume}
                 isNew={product.isNew}
                 isHomePage={false}
+
               />
             </div>
           ))}
@@ -139,9 +142,7 @@ export default function ProduitsPage() {
       {/* Section Tous Nos Produits */}
       <div className="max-w-6xl mx-auto px-4 py-8">
         <div className="flex items-center gap-3 mb-8">
-       <SectionTitle title="Tous Nos Produits" seeAll={false}></SectionTitle>
-         
-          
+          <SectionTitle title="Tous Nos Produits Femme" seeAll={false}></SectionTitle>
         </div>
         
         <div className="flex flex-wrap gap-6">
@@ -156,7 +157,6 @@ export default function ProduitsPage() {
               isNew={product.isNew}
               isHomePage={false}
             />
-
           ))}
         </div>
       </div>
