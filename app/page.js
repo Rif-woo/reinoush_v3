@@ -2,6 +2,7 @@ import BestSellers from "@/components/BestSellers";
 import Categories from "@/components/Categories";
 import HeroSection from "@/components/heroSection";
 import NavBar from "@/components/NavBar";
+import NoteOlfactive from "@/components/NoteOlfactive";
 import HeroSectionSeparator from "@/components/ui/separator";
 import Image from "next/image";
 
@@ -17,6 +18,7 @@ export default function Home() {
       <main className="flex flex-col p-5 gap-48">
         <BestSellers></BestSellers>
         <Categories></Categories>
+        <NoteOlfactive></NoteOlfactive>
       </main>
     </div>
   );
