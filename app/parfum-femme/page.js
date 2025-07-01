@@ -147,18 +147,30 @@ export default function ParfumFemmePage() {
           <SectionTitle title="Tous Nos Produits Femme" seeAll={false}></SectionTitle>
         </div>
         
-        <div className="flex flex-wrap gap-6">
+        <div className="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-6">
           {allProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              productName={product.name}
-              productImage={product.image}
-              productPrice={product.price}
-              ProductType={product.type}
-              ProductVolume={product.volume}
-              isNew={product.isNew}
-              isHomePage={false}
-            />
+            // <ProductCard
+            //   key={product.id}
+            //   productName={product.name}
+            //   productImage={product.image}
+            //   productPrice={product.price}
+            //   ProductType={product.type}
+            //   ProductVolume={product.volume}
+            //   isNew={product.isNew}
+            //   isHomePage={false}
+            // />
+
+             <div key={product.id} className="flex-shrink-0">
+                <ProductCard
+                  productName={product.name}
+                  productImage={product.image}
+                  productPrice={product.price}
+                  ProductType={product.type}
+                  ProductVolume={product.volume}
+                  isNew={product.isNew}
+                  isHomePage={false}
+                />
+              </div>
           ))}
         </div>
       </div>

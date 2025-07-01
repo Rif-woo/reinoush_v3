@@ -97,7 +97,7 @@ export default function BestSellers() {
     }, [emblaApi, onSelect]);
 
     return (
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col justify-self-start w-full gap-10">
             <div className="flex justify-between items-center">
                 <SectionTitle title="Nos Best Sellers" seeAll={true}></SectionTitle>
                 
@@ -108,7 +108,8 @@ export default function BestSellers() {
                             prevBtnDisabled 
                                 ? 'opacity-50 cursor-not-allowed' 
                                 : 'hover:bg-black hover:text-white'
-                        }`}
+                        }`}A Propos
+
                         onClick={scrollPrev}
                         disabled={prevBtnDisabled}
                     >

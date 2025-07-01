@@ -1,5 +1,10 @@
+
+
+import APropos from "@/components/APropos";
+import AvisClients from "@/components/AvisClients";
 import BestSellers from "@/components/BestSellers";
 import Categories from "@/components/Categories";
+import Contact from "@/components/Contact";
 import HeroSection from "@/components/heroSection";
 import NavBar from "@/components/NavBar";
 import NoteOlfactive from "@/components/NoteOlfactive";
@@ -15,10 +20,13 @@ export default function Home() {
         <HeroSection></HeroSection>
       </header>
         <HeroSectionSeparator></HeroSectionSeparator>
-      <main className="flex flex-col p-5 gap-48">
+      <main className="flex flex-col p-5 justify-center items-center gap-48">
         <BestSellers></BestSellers>
         <Categories></Categories>
         <NoteOlfactive></NoteOlfactive>
+        <APropos></APropos>
+        <AvisClients></AvisClients>
+        <Contact></Contact>
       </main>
     </div>
   );

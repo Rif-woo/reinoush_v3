@@ -13,7 +13,7 @@ export default function SectionTitle({ title, seeAll}) {
                         style={{ objectFit: 'contain' }}
                     />
                 </div>
-                <h2 className="text-3xl">{title}</h2>
+                <h2 className="w-full text-left text-3xl lg:text-4xl">{title}</h2>
             </div>
 
 
