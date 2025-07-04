@@ -24,7 +24,7 @@ export default function ProductCard({
             type: ProductType,
             volume: ProductVolume
         });
-        showNotification(productName);
+        showNotification(productName);between
     };
     
     // Function to get the correct background color for product type
@@ -40,18 +40,20 @@ export default function ProductCard({
     };
 
     return (
-        <div className={`flex flex-col ${isHomePage ? 'w-[280px] sm:w-[320px] lg:w-[350px] h-[450px] sm:h-[500px] lg:h-[550px]' : 'w-[200px] sm:w-[220px] lg:w-[250px] h-[280px] sm:h-[320px] lg:h-[350px]'} mx-auto`}>
+        <div className={`flex flex-col ${isHomePage ? 'w-[280px] sm:w-[350px] lg:w-[350px] h-[450px] sm:h-[500px] lg:h-[550px] max-md:w-[310px]' : 'w-[160px] sm:w-[220px] lg:w-[250px] h-[290px] sm:h-[320px] lg:h-[350px]'} mx-auto `}>
             <div className="relative w-full h-full p-3 bg-black flex">
                 <div className="w-full flex justify-between">
                     {isNew && (
-                        <div className={`z-10 ${isHomePage ? 'w-28 h-7' : 'w-20 h-7'} rounded-md bg-black`}>
-                            <p className={`text-white ${isHomePage ? 'text-xl' : 'text-lg'}  text-center`}>Nouveau</p>
+                        <div className={`z-10 ${isHomePage ? 'w-28 h-7' : 'w-20 h-7'} rounded-md bg-black max-md:w-fit max-md:h-fit max-md:px-2 max-md:rounded-sm`}>
+
+                            <p className={`text-white ${isHomePage ? 'text-xl' : 'text-lg max-md:text-sm'}  text-center`}>Nouveau</p>
                         </div>
                     )}
                     {!isNew && <div></div>}
 
-                    <div className={`z-10 ${isHomePage ? 'w-28 h-7 ' : 'w-20 h-7 '} rounded-md ${getTypeColor(ProductType)}`}>
-                        <p className="text-white text-xl text-center">{ProductType}</p>
+                    <div className={`z-10 ${isHomePage ? 'w-28 h-7 ' : 'w-20 h-7 max-md:w-fit max-md:h-fit max-md:px-2 max-md:rounded-sm'} rounded-md ${getTypeColor(ProductType)}`}>
+
+                        <p className="text-white text-xl max-md:text-sm text-center">{ProductType}</p>
                     </div>
                 </div>
 
@@ -63,16 +65,21 @@ export default function ProductCard({
                 />
             </div>
 
-            <div className="w-full h-1/9 border-2 flex justify-between items-center p-2">
+            <div className={`w-full ${isHomePage ? 'h-1/9' : 'h-1/9 max-md:h-2/9 max-md:flex-col max-md:justify-center'}  border-2 flex justify-between items-center p-2`}>
                <div className="flex items-center gap-2">
-                    <p className={`text-black ${isHomePage ? 'text-xl' : 'text-sm'}  font-bold`}>{productName}</p>
-                    <div className="rounded-full w-2 h-2 bg-black"></div>
-                    <p className={`${isHomePage ? 'text-xl' : 'text-sm'}`}>{ProductVolume}</p>
+                    {/* fragance name text */}
+                    <p className={`text-black ${isHomePage ? 'text-xl' : 'text-sm'}  font-bold max-md:text-base`}>{productName}</p>
+                    {isHomePage && 
+                        <div className="rounded-full w-2 h-2 bg-black"></div>
+                    }
+                    {/* fragance volume text */}
+                    <p className={`${isHomePage ? 'text-xl' : 'text-sm'} max-md:text-base`}>{ProductVolume}</p>
                </div>
 
                <div className="flex items-center">
-                    <p className={`${isHomePage ? 'text-xl' : 'text-sm'} font-bold`}>{productPrice}</p>
-                    <div className={`relative ${isHomePage ? 'w-6 h-6' : 'w-3 h-3'} `}>
+                {/* price text */}
+                    <p className={`${isHomePage ? 'text-xl' : 'text-sm'} font-bold max-md:text-base`}>{productPrice}</p>
+                    <div className={`relative ${isHomePage ? 'w-6 h-6' : 'w-3 h-3'}`}>
                          <Image
                             src="/mini_arrow.svg"
                             alt="chevron"

@@ -104,7 +104,7 @@ export default function BestSellers() {
                 {/* Navigation buttons */}
                 <div className="flex gap-4">
                     <button
-                        className={`w-12 h-12 rounded-full border-2 border-black flex items-center justify-center transition-all duration-200 ${
+                        className={`w-12 h-12 max-md:w-10 max-md:h-10 rounded-full border-2 border-black flex items-center justify-center transition-all duration-200 ${
                             prevBtnDisabled 
                                 ? 'opacity-50 cursor-not-allowed' 
                                 : 'hover:bg-black hover:text-white'
@@ -128,7 +128,7 @@ export default function BestSellers() {
                         </svg>
                     </button>
                     <button
-                        className={`w-12 h-12 rounded-full border-2 border-black flex items-center justify-center transition-all duration-200 ${
+                        className={`w-12 h-12 max-md:w-10 max-md:h-10 rounded-full border-2 border-black flex items-center justify-center transition-all duration-200 ${
                             nextBtnDisabled 
                                 ? 'opacity-50 cursor-not-allowed' 
                                 : 'hover:bg-black hover:text-white'

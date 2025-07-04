@@ -13,16 +13,16 @@ export default function SectionTitle({ title, seeAll}) {
                         style={{ objectFit: 'contain' }}
                     />
                 </div>
-                <h2 className="w-full text-left text-3xl lg:text-4xl">{title}</h2>
+                <h2 className="w-full text-left text-3xl lg:text-4xl max-md:text-lg">{title}</h2>
             </div>
 
 
             {seeAll && (
                 <>
-                    <div className="w-3 h-1 bg-black"></div>
+                    <div className="w-3 h-1 rounded-full bg-black"></div>
 
                     <Link href="/produits">
-                        <p className="underline text-xl cursor-pointer">Voir Tout</p>
+                        <p className="underline text-xl cursor-pointer max-lg:text-sm">Voir Tout</p>
                     </Link> 
                 
                 </>

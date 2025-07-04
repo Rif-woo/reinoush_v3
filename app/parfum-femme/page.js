@@ -39,7 +39,7 @@ export default function ParfumFemmePage() {
   const allProducts = filteredProducts;
 
   return (
-    <div className="min-h-screen bg-[#FCFAF5] px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#FCFAF5] sm:px-6 lg:px-8">
       <NavBar />
       
       {/* Ligne décorative */}
@@ -98,7 +98,7 @@ export default function ParfumFemmePage() {
           
         </div>
         
-        <div className="flex gap-6 overflow-x-auto pb-4">
+        <div className="flex flex-wrap gap-6 overflow-x-auto pb-4">
           {bestSellers.map((product) => (
             <div key={product.id} className="flex-shrink-0">
               <ProductCard
@@ -123,7 +123,7 @@ export default function ParfumFemmePage() {
           
         </div>
         
-        <div className="flex gap-6 overflow-x-auto pb-4">
+        <div className="flex flex-wrap gap-6 overflow-x-auto pb-4">
           {nouveautes.map((product) => (
             <div key={product.id} className="flex-shrink-0">
               <ProductCard
@@ -142,12 +142,12 @@ export default function ParfumFemmePage() {
       </div>
 
       {/* Section Tous Nos Produits */}
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-6xl max-md:w-full mx-auto px-4 py-8">
         <div className="flex items-center gap-3 mb-8">
           <SectionTitle title="Tous Nos Produits Femme" seeAll={false}></SectionTitle>
         </div>
         
-        <div className="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-6">
+        <div className="flex flex-wrap justify-between sm:justify-around gap-4 sm:gap-6">
           {allProducts.map((product) => (
             // <ProductCard
             //   key={product.id}

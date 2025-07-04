@@ -39,7 +39,7 @@ export default function ParfumHommePage() {
   const allProducts = filteredProducts;
 
   return (
-    <div className="min-h-screen bg-[#FCFAF5] px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#FCFAF5] sm:px-6 lg:px-8">
       <NavBar />
       
       {/* Ligne décorative */}
@@ -74,7 +74,7 @@ export default function ParfumHommePage() {
           </div>
 
           {/* Filtre par volume */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center w-full gap-2">
             <label className="text-sm font-medium text-gray-700">Volume:</label>
             <select 
               value={volumeFilter} 
@@ -96,7 +96,7 @@ export default function ParfumHommePage() {
        
         </div>
         
-        <div className="flex gap-6 overflow-x-auto pb-4">
+        <div className="flex flex-wrap gap-6 overflow-x-auto pb-4">
           {bestSellers.map((product) => (
             <div key={product.id} className="flex-shrink-0">
               <ProductCard
@@ -120,7 +120,7 @@ export default function ParfumHommePage() {
        
         </div>
         
-        <div className="flex gap-6 overflow-x-auto pb-4">
+        <div className="flex flex-wrap gap-6 overflow-x-auto pb-4">
           {nouveautes.map((product) => (
             <div key={product.id} className="flex-shrink-0">
               <ProductCard
@@ -139,26 +139,13 @@ export default function ParfumHommePage() {
       </div>
 
       {/* Section Tous Nos Produits */}
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-6xl max-md:w-full mx-auto px-4 py-8">
         <div className="flex items-center gap-3 mb-8">
           <SectionTitle title="Tous Nos Produits Homme" seeAll={false}></SectionTitle>
         </div>
         
-        <div className="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-6">
+        <div className="flex flex-wrap justify-between sm:justify-around gap-4 sm:gap-6">
           {allProducts.map((product) => (
-            
-            // <ProductCard
-            //   key={product.id}
-            //   productName={product.name}
-            //   productImage={product.image}
-            //   productPrice={product.price}
-            //   ProductType={product.type}
-            //   ProductVolume={product.volume}
-            //   isNew={product.isNew}
-            //     isHomePage={false}
-
-            // />
-
              <div key={product.id} className="flex-shrink-0">
                 <ProductCard
                   productName={product.name}
