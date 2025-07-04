@@ -211,23 +211,21 @@ export default function AvisClients() {
     }, [currentIndex]);
 
     return (
-        <div ref={sectionRef} className="w-10/12 flex flex-col justify-center items-center border-2 py-12 sm:py-16 lg:py-10 px-4 bg-[#FFF8E6]">
+        <div ref={sectionRef} className="w-full max-w-7xl mx-auto flex flex-col justify-center items-center border-2 py-8 sm:py-12 lg:py-16 px-4 bg-[#FFF8E6]">
             {/* Section Title */}
-            
-            
-            <div className="w-full max-w-7xl mb-8 sm:mb-12 lg:mb-16">
+            <div className="w-full mb-6 sm:mb-8 lg:mb-12">
                 <div className="flex justify-center">
                     <div ref={titleRef} className="flex items-center gap-2 sm:gap-3">
                         <div className="flex gap-2 items-center">
-                           <div className="relative w-7 h-7">
+                           <div className="relative w-6 h-6 sm:w-7 sm:h-7">
                                 <Image
                                     src="/star_filled.svg"
-                                    alt="chevron"
+                                    alt="star"
                                     fill
                                     style={{ objectFit: 'contain' }}
                                 />
                             </div>
-                            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-anon)] text-center">
+                            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-[family-name:var(--font-anon)] text-center">
                                 Vos Avis, Notre Plus Belle Fragrance
                             </h2>
                         </div>
@@ -236,8 +234,8 @@ export default function AvisClients() {
             </div>
             
             {/* Carousel Container */}
-            <div className="relative w-full max-w-full">
-                {/* Navigation Arrows - Hidden on mobile */}
+            <div className="relative w-full">
+                {/* Navigation Arrows - Desktop */}
                 <button 
                     ref={(el) => arrowsRef.current[0] = el}
                     onClick={prevSlide}
@@ -261,33 +259,102 @@ export default function AvisClients() {
                 </button>
 
                 {/* Avis Cards */}
-                <div className="flex flex-col md:flex-row justify-center gap-4 sm:gap-6 lg:gap-8 px-4 sm:px-8 lg:px-16">
-                    {getVisibleAvis().map((avisItem, index) => (
+                <div className="flex flex-col md:flex-row justify-center gap-4 sm:gap-6 lg:gap-8 px-2 sm:px-4 lg:px-16">
+                    {/* Sur mobile, on affiche seulement 1 carte, sur tablette 2, sur desktop 3 */}
+                    <div className="block md:hidden w-full">
+                        {/* Version mobile - 1 carte */}
                         <div 
-                            key={`${avisItem.id}-${index}`}
-                            ref={(el) => cardsRef.current[index] = el}
-                            className="w-full md:flex-1 md:max-w-sm bg-[#FCFAF5] border-2 rounded-lg p-4 sm:p-6 lg:p-8 flex flex-col justify-between min-h-[300px] sm:min-h-[320px] lg:min-h-[350px]"
+                            key={`${avis[currentIndex].id}-mobile`}
+                            ref={(el) => cardsRef.current[0] = el}
+                            className="w-full bg-[#FCFAF5] border-2 rounded-lg p-4 sm:p-6 flex flex-col justify-between min-h-[280px]"
                         >
                             {/* Stars */}
-                            <div className="flex gap-2 mb-6">
-                                {renderStars(avisItem.rating)}
+                            <div className="flex gap-1 mb-4">
+                                {renderStars(avis[currentIndex].rating)}
                             </div>
                             
                             {/* Review Text */}
                             <div className="flex-1">
-                                <p className="text-lg leading-relaxed font-[family-name:var(--font-anon)] text-gray-800">
-                                    {avisItem.text}
+                                <p className="text-base leading-relaxed font-[family-name:var(--font-anon)] text-gray-800">
+                                    {avis[currentIndex].text}
                                 </p>
                             </div>
                             
                             {/* Author */}
-                            <div className="mt-8">
-                                <p className="text-lg font-italic font-[family-name:var(--font-anon)] text-gray-700">
-                                    {avisItem.author}
+                            <div className="mt-6">
+                                <p className="text-base font-italic font-[family-name:var(--font-anon)] text-gray-700">
+                                    {avis[currentIndex].author}
                                 </p>
                             </div>
                         </div>
-                    ))}
+                    </div>
+                    
+                    {/* Version tablette et desktop */}
+                    <div className="hidden md:flex justify-center gap-4 sm:gap-6 lg:gap-8 w-full">
+                        {getVisibleAvis().map((avisItem, index) => (
+                            <div 
+                                key={`${avisItem.id}-${index}`}
+                                ref={(el) => cardsRef.current[index] = el}
+                                className="flex-1 max-w-sm bg-[#FCFAF5] border-2 rounded-lg p-4 sm:p-6 lg:p-8 flex flex-col justify-between min-h-[300px] sm:min-h-[320px] lg:min-h-[350px]"
+                            >
+                                {/* Stars */}
+                                <div className="flex gap-2 mb-6">
+                                    {renderStars(avisItem.rating)}
+                                </div>
+                                
+                                {/* Review Text */}
+                                <div className="flex-1">
+                                    <p className="text-lg leading-relaxed font-[family-name:var(--font-anon)] text-gray-800">
+                                        {avisItem.text}
+                                    </p>
+                                </div>
+                                
+                                {/* Author */}
+                                <div className="mt-8">
+                                    <p className="text-lg font-italic font-[family-name:var(--font-anon)] text-gray-700">
+                                        {avisItem.author}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                
+                {/* Navigation mobile */}
+                <div className="md:hidden mt-6 flex justify-center items-center gap-4">
+                    <button 
+                        onClick={prevSlide}
+                        className="p-2 rounded-full border-2 border-gray-300 hover:border-gray-500 hover:bg-gray-100 transition-all duration-200"
+                        aria-label="Avis précédent"
+                    >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    
+                    {/* Pagination dots */}
+                    <div className="flex gap-2">
+                        {avis.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setCurrentIndex(index)}
+                                className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                                    index === currentIndex ? 'bg-gray-800' : 'bg-gray-300'
+                                }`}
+                                aria-label={`Aller à l'avis ${index + 1}`}
+                            />
+                        ))}
+                    </div>
+                    
+                    <button 
+                        onClick={nextSlide}
+                        className="p-2 rounded-full border-2 border-gray-300 hover:border-gray-500 hover:bg-gray-100 transition-all duration-200"
+                        aria-label="Avis suivant"
+                    >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
