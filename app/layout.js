@@ -1,11 +1,12 @@
 import { Anonymous_Pro } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from '@/contexts/CartContext';
 import { CartNotificationProvider } from '@/contexts/CartNotificationContext';
 
 
 
-const anonymous = Anonymous_Pro({
+const anonymous = Poppins({
   variable: "--font-anon",
   subsets: ["latin"],
   weight: ["400", "700"],

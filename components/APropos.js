@@ -3,7 +3,7 @@ import SectionTitle from "./ui/SectionTitle";
 
 export default function APropos() {
     return (
-        <div className="w-full flex flex-col justify-center items-center gap-24 py-20 px-4">
+        <div className="w-full flex flex-col justify-center items-center gap-24 py-20 px-4" id="Apropos">
             {/* Section Title */}
                 <SectionTitle title="A Propos" />
             

@@ -46,7 +46,7 @@ export default function AvisClients() {
 
     const renderStars = (rating) => {
         return Array.from({ length: rating }, (_, index) => (
-            <span key={index} className="text-2xl">♡</span>
+            <span key={index} className="text-2xl ">❤️</span>
         ));
     };
 
@@ -211,7 +211,7 @@ export default function AvisClients() {
     }, [currentIndex]);
 
     return (
-        <div ref={sectionRef} className="w-full max-w-7xl mx-auto flex flex-col justify-center items-center border-2 py-8 sm:py-12 lg:py-16 px-4 bg-[#FFF8E6]">
+        <div ref={sectionRef} className="w-full max-w-fit mx-auto flex flex-col justify-center items-center border-2 py-8 sm:py-12 lg:py-16 px-4 ">
             {/* Section Title */}
             <div className="w-full mb-6 sm:mb-8 lg:mb-12">
                 <div className="flex justify-center">
@@ -239,7 +239,7 @@ export default function AvisClients() {
                 <button 
                     ref={(el) => arrowsRef.current[0] = el}
                     onClick={prevSlide}
-                    className="hidden lg:block absolute left-0 top-1/2 transform -translate-y-1/2 z-10 p-3 lg:p-4 hover:opacity-70 transition-opacity"
+                    className=" hidden lg:block absolute left-0 top-1/2 transform -translate-y-1/2 z-10 p-3 lg:p-4 hover:opacity-70 transition-opacity"
                     aria-label="Avis précédent"
                 >
                     <svg className="w-8 h-8 lg:w-10 lg:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -259,14 +259,14 @@ export default function AvisClients() {
                 </button>
 
                 {/* Avis Cards */}
-                <div className="flex flex-col md:flex-row justify-center gap-4 sm:gap-6 lg:gap-8 px-2 sm:px-4 lg:px-16">
+                <div className="flex flex-col md:flex-row justify-center gap-4 sm:gap-6 lg:gap-8 px-2 sm:px-4 lg:px-16 ">
                     {/* Sur mobile, on affiche seulement 1 carte, sur tablette 2, sur desktop 3 */}
-                    <div className="block md:hidden w-full">
+                    <div className="block md:hidden w-full bg-[#FFF8E6]">
                         {/* Version mobile - 1 carte */}
                         <div 
                             key={`${avis[currentIndex].id}-mobile`}
                             ref={(el) => cardsRef.current[0] = el}
-                            className="w-full bg-[#FCFAF5] border-2 rounded-lg p-4 sm:p-6 flex flex-col justify-between min-h-[280px]"
+                            className="w-full border-2 rounded-lg p-4 sm:p-6 flex flex-col justify-between min-h-[280px] "
                         >
                             {/* Stars */}
                             <div className="flex gap-1 mb-4">
@@ -295,10 +295,10 @@ export default function AvisClients() {
                             <div 
                                 key={`${avisItem.id}-${index}`}
                                 ref={(el) => cardsRef.current[index] = el}
-                                className="flex-1 max-w-sm bg-[#FCFAF5] border-2 rounded-lg p-4 sm:p-6 lg:p-8 flex flex-col justify-between min-h-[300px] sm:min-h-[320px] lg:min-h-[350px]"
+                                className="flex-1 max-w-sm bg-[#FFF8E6] border-2 rounded-lg p-4 sm:p-6 lg:p-8 flex flex-col justify-between min-h-[300px] sm:min-h-[320px] lg:min-h-[350px]"
                             >
                                 {/* Stars */}
-                                <div className="flex gap-2 mb-6">
+                                <div className="flex gap-2 mb-6 ">
                                     {renderStars(avisItem.rating)}
                                 </div>
                                 
@@ -324,7 +324,7 @@ export default function AvisClients() {
                 <div className="md:hidden mt-6 flex justify-center items-center gap-4">
                     <button 
                         onClick={prevSlide}
-                        className="p-2 rounded-full border-2 border-gray-300 hover:border-gray-500 hover:bg-gray-100 transition-all duration-200"
+                        className="p-2 rounded-full border-2 border-black hover:bg-gray-100 transition-all duration-200"
                         aria-label="Avis précédent"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -348,7 +348,7 @@ export default function AvisClients() {
                     
                     <button 
                         onClick={nextSlide}
-                        className="p-2 rounded-full border-2 border-gray-300 hover:border-gray-500 hover:bg-gray-100 transition-all duration-200"
+                        className="p-2 rounded-full border-2 border-black hover:bg-gray-100 transition-all duration-200"
                         aria-label="Avis suivant"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

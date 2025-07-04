@@ -20,7 +20,7 @@ export default function Home() {
         <HeroSection></HeroSection>
       </header>
         <HeroSectionSeparator></HeroSectionSeparator>
-      <main className="flex flex-col p-5 justify-center items-center gap-48">
+      <main className="flex flex-col p-5 justify-center items-center gap-36">
         <BestSellers></BestSellers>
         <Categories></Categories>
         <NoteOlfactive></NoteOlfactive>

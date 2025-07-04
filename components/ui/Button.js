@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function HomeButton(){
     return (
-      <div className=" w-fit flex justify-self-center items-center border-1 gap-2 bg-[#FFF8E6] p-4 rounded-lg cursor-pointer">
+      <div className=" w-fit flex justify-self-center items-center border-1 gap-2 bg-[#FFF8E6] p-4 max-md:p-2 max-md:text-sm rounded-lg cursor-pointer">
             <p>Decouvrez nos parfums</p>
 
             <div className="relative w-4 h-4">

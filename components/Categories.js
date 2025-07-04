@@ -7,7 +7,7 @@ import SectionTitle from "./ui/SectionTitle";
 export default function Categories() {
     return (
         <div className="flex flex-col justify-center items-center gap-12 sm:gap-16 lg:gap-28 px-4 sm:px-6 lg:px-8">
-            <SectionTitle title="Categories" seeAll={false} />
+            <SectionTitle title="Catégories" seeAll={false} />
             
             <div className="flex flex-col lg:flex-row justify-center gap-8 lg:gap-15 w-full max-w-6xl">
 

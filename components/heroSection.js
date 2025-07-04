@@ -6,7 +6,7 @@ import SplitText from "@/blocks/TextAnimations/SplitText/SplitText";
 
 export default function HeroSection(){
     return (
-        <div className="w-full flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+        <div className="w-full flex flex-col justify-center items-center gap-12 sm:gap-8 md:gap-12 lg:gap-16 px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
 
             <div className="w-full flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-12 lg:gap-15">
                

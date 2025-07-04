@@ -4,7 +4,7 @@ import SectionTitle from './ui/SectionTitle';
 
 const Contact = () => {
   return (
-    <div className="w-full flex justify-center items-center py-8 sm:py-12 lg:py-16">
+    <div className="w-full flex justify-center items-center py-8 sm:py-12 lg:py-16" id='contact'>
       <div className="relative w-10/12 min-h-[35vh] sm:min-h-[40vh] lg:min-h-[45vh] flex flex-col items-center justify-center rounded-lg overflow-hidden">
         <Image 
           src="/contactBG.png"

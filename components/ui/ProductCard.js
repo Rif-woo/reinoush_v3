@@ -46,14 +46,14 @@ export default function ProductCard({
                     {isNew && (
                         <div className={`z-10 ${isHomePage ? 'w-28 h-7' : 'w-20 h-7'} rounded-md bg-black max-md:w-fit max-md:h-fit max-md:px-2 max-md:rounded-sm`}>
 
-                            <p className={`text-white ${isHomePage ? 'text-xl' : 'text-lg max-md:text-sm'}  text-center`}>Nouveau</p>
+                            <p className={`text-white ${isHomePage ? 'text-lg' : 'text-lg max-md:text-sm'}  text-center`}>Nouveau</p>
                         </div>
                     )}
                     {!isNew && <div></div>}
 
-                    <div className={`z-10 ${isHomePage ? 'w-28 h-7 ' : 'w-20 h-7 max-md:w-fit max-md:h-fit max-md:px-2 max-md:rounded-sm'} rounded-md ${getTypeColor(ProductType)}`}>
+                    <div className={`z-10 ${isHomePage ? 'w-28 h-7 ' : 'w-20 h-7 '} rounded-md ${getTypeColor(ProductType)} max-md:w-fit max-md:h-fit max-md:px-2 max-md:rounded-sm`}>
 
-                        <p className="text-white text-xl max-md:text-sm text-center">{ProductType}</p>
+                        <p className={`text-white ${isHomePage ? 'text-lg' : 'text-lg max-md:text-sm'}  text-center`}>{ProductType}</p>
                     </div>
                 </div>
 

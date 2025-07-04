@@ -37,13 +37,13 @@ export default function NavBar() {
                                     href="/parfum-homme"
                                     className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
                                 >
-                                    Parfum Homme
+                                    Parfum Hommes
                                 </Link>
                                 <Link 
                                     href="/parfum-femme"
                                     className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
                                 >
-                                    Parfum Femme
+                                    Parfum Femmes
                                 </Link>
                                 <Link 
                                     href="/produits"
@@ -52,13 +52,13 @@ export default function NavBar() {
                                     Produits
                                 </Link>
                                 <Link 
-                                    href="#"
+                                    href="#Apropos"
                                     className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
                                 >
                                     À propos
                                 </Link>
                                 <Link 
-                                    href="#"
+                                    href="#contact"
                                     className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
                                 >
                                     Contact
