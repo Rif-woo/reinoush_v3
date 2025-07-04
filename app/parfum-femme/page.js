@@ -149,17 +149,6 @@ export default function ParfumFemmePage() {
         
         <div className="flex flex-wrap justify-between sm:justify-around gap-4 sm:gap-6">
           {allProducts.map((product) => (
-            // <ProductCard
-            //   key={product.id}
-            //   productName={product.name}
-            //   productImage={product.image}
-            //   productPrice={product.price}
-            //   ProductType={product.type}
-            //   ProductVolume={product.volume}
-            //   isNew={product.isNew}
-            //   isHomePage={false}
-            // />
-
              <div key={product.id} className="flex-shrink-0">
                 <ProductCard
                   productName={product.name}
