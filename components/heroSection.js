@@ -31,7 +31,7 @@ export default function HeroSection(){
                 {/* Section des images - responsive */}
                 <div className="relative flex justify-center items-center w-full max-w-6xl px-2">
                     {/* Image gauche */}
-                    <div className="relative left-4 sm:left-4 md:left-6 lg:left-14 w-[100px] sm:w-[130px] md:w-[180px] lg:w-[230px] h-[160px] sm:h-[180px] md:h-[250px] lg:h-[320px] xl:h-[400px] -rotate-12 rounded-lg border border-gray-300 bg-black flex-shrink-0">
+                    <div className="relative left-4 sm:left-4 md:left-6 lg:left-14 w-[100px] sm:w-[130px] md:w-[180px] lg:w-[230px] h-[145px] sm:h-[180px] md:h-[250px] lg:h-[320px] xl:h-[400px] -rotate-12 rounded-lg border border-gray-300 bg-black flex-shrink-0">
                           <Image
                             src="/parfums/Grace.webp"
                             alt="Parfum Grace"
@@ -53,7 +53,7 @@ export default function HeroSection(){
                     </div>
                     
                     {/* Image droite */}
-                     <div className="relative right-4 sm:right-4 md:right-6 lg:right-14 w-[100px] sm:w-[130px] md:w-[180px] lg:w-[230px] h-[160px] sm:h-[180px] md:h-[250px] lg:h-[320px] xl:h-[400px] rotate-12 rounded-lg border border-gray-300 bg-black flex-shrink-0">
+                     <div className="relative right-4 sm:right-4 md:right-6 lg:right-14 w-[100px] sm:w-[130px] md:w-[180px] lg:w-[230px] h-[145px] sm:h-[180px] md:h-[250px] lg:h-[320px] xl:h-[400px] rotate-12 rounded-lg border border-gray-300 bg-black flex-shrink-0">
                          <Image
                             src="/parfums/Mighty50.PNG"
                             alt="Parfum Mighty"
