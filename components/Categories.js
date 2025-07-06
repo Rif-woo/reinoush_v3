@@ -27,7 +27,7 @@ export default function Categories() {
                     <div className="relative flex-1 group cursor-pointer border-1 mx-auto lg:mx-0">
                         <div className="relative w-[250px] sm:w-[300px] lg:w-[350px] h-[300px] sm:h-[400px] lg:h-[500px] bg-black">
                             <Image
-                                src="/Grace50.PNG"
+                                src="/parfums/Grace50.PNG"
                                 alt="Grace Parfum Femme"
                                 fill
                                 style={{ objectFit: 'cover' }}
@@ -61,7 +61,7 @@ export default function Categories() {
                     <div className="relative flex-1 group cursor-pointer mx-auto lg:mx-0">
                         <div className="relative w-[250px] sm:w-[300px] lg:w-[350px] h-[300px] sm:h-[400px] lg:h-[500px] bg-black border-1">
                             <Image
-                                src="/Mighty50.PNG"
+                                src="/parfums/Mighty50.PNG"
                                 alt="Mighty Parfum Homme"
                                 fill
                                 style={{ objectFit: 'cover' }}

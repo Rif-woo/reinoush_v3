@@ -33,7 +33,7 @@ export default function HeroSection(){
                     {/* Image gauche */}
                     <div className="relative left-2 sm:left-4 md:left-6 lg:left-14 w-[100px] sm:w-[130px] md:w-[180px] lg:w-[230px] h-[140px] sm:h-[180px] md:h-[250px] lg:h-[320px] xl:h-[400px] -rotate-12 rounded-lg border border-gray-300 bg-black flex-shrink-0">
                           <Image
-                            src="/Grace.webp"
+                            src="/parfums/Grace.webp"
                             alt="Parfum Grace"
                             fill
                             style={{ objectFit: 'cover' }}
@@ -44,7 +44,7 @@ export default function HeroSection(){
                     {/* Image centrale */}
                     <div className="relative w-[140px] sm:w-[180px] md:w-[220px] lg:w-[280px] xl:w-[300px] h-[200px] sm:h-[260px] md:h-[320px] lg:h-[400px] xl:h-[480px] z-10 border rounded-lg mx-1 sm:mx-2 md:mx-4 flex-shrink-0">
                          <Image
-                            src="/Grace50.PNG"
+                            src="/parfums/Grace50.PNG"
                             alt="Parfum Grace 50ml"
                             fill
                             style={{ objectFit: 'cover' }}
@@ -55,7 +55,7 @@ export default function HeroSection(){
                     {/* Image droite */}
                      <div className="relative right-2 sm:right-4 md:right-6 lg:right-14 w-[100px] sm:w-[130px] md:w-[180px] lg:w-[230px] h-[140px] sm:h-[180px] md:h-[250px] lg:h-[320px] xl:h-[400px] rotate-12 rounded-lg border border-gray-300 bg-black flex-shrink-0">
                          <Image
-                            src="/Mighty50.PNG"
+                            src="/parfums/Mighty50.PNG"
                             alt="Parfum Mighty"
                             fill
                             style={{ objectFit: 'cover' }}
