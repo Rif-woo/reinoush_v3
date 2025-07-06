@@ -130,14 +130,14 @@ export default function NavBar() {
                                 Produits
                             </Link>
                             <Link 
-                                href="#"
+                                href="#Apropos"
                                 className="text-black hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium transition-colors"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 À propos
                             </Link>
                             <Link 
-                                href="#"
+                                href="#contact"
                                 className="text-black hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium transition-colors"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >

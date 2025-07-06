@@ -85,7 +85,7 @@ export default function ParfumHommePage() {
       </div>
 
       {/* Section Nos Best Sellers */}
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-6xl max-md:px-1 px-4 py-8">
         <div className="flex items-center gap-3 mb-8">
                 <SectionTitle title="Nos Best Sellers" seeAll={false}></SectionTitle>
        
@@ -109,7 +109,7 @@ export default function ParfumHommePage() {
       </div>
 
       {/* Section Nouveautés */}
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-6xl max-md:px-1 px-4 py-8">
         <div className="flex items-center gap-3 mb-8">
           <SectionTitle title="Nouveautés" seeAll={false}></SectionTitle>
        
@@ -134,7 +134,7 @@ export default function ParfumHommePage() {
       </div>
 
       {/* Section Tous Nos Produits */}
-      <div className="max-w-6xl max-md:w-full mx-auto px-4 py-8">
+      <div className="max-w-6xl max-md:w-full max-md:px-1 px-4 py-8">
         <div className="flex items-center gap-3 mb-8">
           <SectionTitle title="Tous Nos Produits Homme" seeAll={false}></SectionTitle>
         </div>

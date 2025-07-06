@@ -93,12 +93,12 @@ export default function ProduitsPage() {
       </div>
 
       {/* Section Nos Best Sellers */}
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-6xl w-full max-md:px-1 px-4 py-8">
         <div className="flex items-center gap-3 mb-8">
          <SectionTitle title="Nos Best Sellers" seeAll={false}></SectionTitle>
         </div>
         
-        <div className="flex flex-wrap gap-6 overflow-x-auto pb-4">
+        <div className="w-full flex flex-wrap max-md:justify-around gap-6 overflow-x-auto pb-4">
           {bestSellers.map((product) => (
             <div key={product.id} className="flex-shrink-0">
               <ProductCard
@@ -116,13 +116,13 @@ export default function ProduitsPage() {
       </div>
 
       {/* Section Nouveautés */}
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-6xl px-4 max-md:px-1 py-8">
 
         <div className="flex items-center gap-3 mb-8">
           <SectionTitle title="Nouveautés" seeAll={false}></SectionTitle>
         </div>
         
-        <div className="flex flex-wrap gap-6 overflow-x-auto pb-4">
+        <div className="w-full flex flex-wrap max-md:justify-around gap-6 pb-4">
           {nouveautes.map((product) => (
             <div key={product.id} className="flex-shrink-0">
               <ProductCard
@@ -140,13 +140,13 @@ export default function ProduitsPage() {
       </div>
 
       {/* Section Tous Nos Produits */}
-      <div className="max-w-6xl max-md:w-full mx-auto px-4 py-8">
+      <div className="max-w-6xl max-md:w-full max-md:px-1 mx-auto px-4 py-8">
 
         <div className="flex items-center gap-3 mb-8">
           <SectionTitle title="Tous Nos Produits" seeAll={false}></SectionTitle>  
         </div>
         
-        <div className="w-full flex flex-wrap max-md:justify-between sm:justify-start gap-4 sm:gap-6">
+        <div className="w-full flex flex-wrap max-md:justify-around sm:justify-start gap-4 sm:gap-6">
           {allProducts.map((product) => (
             <div key={product.id} className="flex-shrink-0">
               <ProductCard
