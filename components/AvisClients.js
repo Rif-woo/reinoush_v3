@@ -19,20 +19,26 @@ export default function AvisClients() {
         {
             id: 1,
             text: "Merci beaucoup pour les parfums ! 🤩 Chaque flacon est une véritable explosion de joie ! Je suis super contente d'avoir pris les quatre, ils sont tous incroyables. Continue à nous faire découvrir des trésors olfactifs comme ceux-ci !.",
-            author: "Anna Biagi",
-            rating: 1
+            author: "Annie Biagui",
+            rating: 3
         },
         {
             id: 2,
             text: "Merci pour le parfum ça sent hyper bon en plus du petit cadeau dedans ❤️❤️🥰c'est la meilleure j'aime trop.",
             author: "Cheikhouna Balle",
-            rating: 2
+            rating: 4
         },
         {
             id: 3,
-            text: "Merci beaucoup pour les parfums ! 🤩 Chaque flacon est une véritable explosion de joie ! Je suis super contente d'avoir pris les quatre, ils sont tous incroyables. Continue à nous faire découvrir des trésors olfactifs comme ceux-ci !.",
-            author: "Anna Biagi",
+            text: "Nathi nieup taxaw ! Li nekh neu lolouuuu 😭❤️ Favor gui moy sama favori😍 😂 Mighty gui dangay bondit 😂❤️.",
+            author: "Mor Badiane",
             rating: 3
+        },
+        {
+            id: 4,
+            text: "Merci pour le parfum ça sent hyper bon en plus du petit cadeau dedans ♥️❤️🥰t la meilleure j’aime trop.",
+            author: "Joséphine Diame",
+            rating: 4
         }
     ];
 

@@ -65,9 +65,9 @@ const productsData = [
     type: "Femme", 
     volume: "50ml", 
     description: "La luminosité d'un matin de printemps en bouteille",
-    note_de_coeur: ["Muguet", "Lilas", "Cyclamen"], 
-    note_de_tete: ["Citron vert", "Menthe", "Basilic"],
-    note_de_fond: ["Musc", "Bois de santal", "Cachemire"]
+    note_de_coeur: ["Jasmin", "Rose"], 
+    note_de_tete: ["ananas", "litchi"],
+    note_de_fond: ["Patchouli"]
   },
 ];
 // Composant pour les notes individuelles avec animation

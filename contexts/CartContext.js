@@ -129,7 +129,7 @@ export function CartProvider({ children }) {
   const totalItems = state.items.reduce((total, item) => total + item.quantity, 0);
   
   const totalPrice = state.items.reduce((total, item) => {
-    // Extraire le prix numérique de la chaîne "5000 Fcfa"
+    // Extraire le prix numérique de la chaîne "5000 Fcfa" ou "30 €"
     const price = parseInt(item.price.replace(/[^\d]/g, '')) || 0;
     return total + (price * item.quantity);
   }, 0);

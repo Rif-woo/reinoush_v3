@@ -7,7 +7,7 @@ import SectionTitle from './ui/SectionTitle';
 
 const Contact = () => {
   // Numéro WhatsApp de la manageuse (remplacez par le vrai numéro)
-  const whatsappNumber = "+33123456789"; // Format international
+  const whatsappNumber = "+33789080132"; // Format international
   const whatsappMessage = "Bonjour, je souhaite avoir des informations sur vos parfums Reinoush.";
   
   const handleWhatsAppClick = () => {
@@ -60,7 +60,7 @@ const Contact = () => {
             
             {/* Bouton Email alternatif */}
             <Link 
-              href="mailto:contact@reinoush.com"
+              href="cissreinejosephine@gmail.com"
               className="group bg-white/10 backdrop-blur-sm hover:bg-white/20 text-black border-2 border-white/30 hover:border-white/50 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 rounded-lg flex items-center gap-3"
             >
               <Image 

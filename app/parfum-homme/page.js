@@ -5,24 +5,27 @@ import NavBar from '@/components/NavBar';
 import ProductCard from '@/components/ui/ProductCard';
 import HeroSectionSeparator from '@/components/ui/separator';
 import SectionTitle from '@/components/ui/SectionTitle';
+import { usePricing } from '@/contexts/PricingContext';
 
 // Données des parfums homme
 const hommeProductsData = [
-  { id: 1, name: "Mighty", image: "/parfums/Mighty50.PNG", price: "8000 Fcfa", type: "Homme", volume: "50ml", category: "nouveau",isNew: true },
-  { id: 2, name: "Favor", image: "/parfums/Favor50.PNG", price: "8000 Fcfa", type: "Homme", volume: "50ml", category: "nouveau" , isNew: true},
-  { id: 3, name: "Mighty", image: "/parfums/Mighty.webp", price: "5000 Fcfa", type: "Homme", volume: "30ml", category: "bestseller"},
-  { id: 4, name: "Favor", image: "/parfums/Favor.webp", price: "5000 Fcfa", type: "Homme", volume: "30ml", category: "bestseller"},
+  { id: 1, name: "Mighty", image: "/parfums/Mighty50.PNG", type: "Homme", volume: "50ml", category: "nouveau",isNew: true },
+  { id: 2, name: "Favor", image: "/parfums/Favor50.PNG", type: "Homme", volume: "50ml", category: "nouveau" , isNew: true},
+  { id: 3, name: "Mighty", image: "/parfums/Mighty.webp", type: "Homme", volume: "30ml", category: "bestseller"},
+  { id: 4, name: "Favor", image: "/parfums/Favor.webp", type: "Homme", volume: "30ml", category: "bestseller"},
   ];
 
 export default function ParfumHommePage() {
   const [priceFilter, setPriceFilter] = useState('all');
   const [volumeFilter, setVolumeFilter] = useState('all');
+  const { getPriceNumeric, currency } = usePricing();
 
   // Filtrer les produits
   const filteredProducts = hommeProductsData.filter(product => {
+    const productPrice = getPriceNumeric(product.volume);
     const priceMatch = priceFilter === 'all' || 
-      (priceFilter === '8000' && product.price.includes('8000')) ||
-      (priceFilter === '5000' && product.price.includes('5000'));
+      (priceFilter === '50ml' && product.volume === '50ml') ||
+      (priceFilter === '30ml' && product.volume === '30ml');
     const volumeMatch = volumeFilter === 'all' || product.volume === volumeFilter;
     
     return priceMatch && volumeMatch;
@@ -63,8 +66,8 @@ export default function ParfumHommePage() {
               className="border border-gray-300 rounded-md px-3 py-1 text-sm bg-white"
             >
               <option value="all">Tous les prix</option>
-              <option value="8000">8000 Fcfa</option>
-              <option value="5000">5000 Fcfa</option>
+              <option value="50ml">{getPriceNumeric('50ml')} {currency === 'EUR' ? '€' : 'Fcfa'} (50ml)</option>
+              <option value="30ml">{getPriceNumeric('30ml')} {currency === 'EUR' ? '€' : 'Fcfa'} (30ml)</option>
             </select>
           </div>
 
@@ -97,7 +100,6 @@ export default function ParfumHommePage() {
               <ProductCard
                 productName={product.name}
                 productImage={product.image}
-                productPrice={product.price}
                 ProductType={product.type}
                 ProductVolume={product.volume}
                 isNew={product.isNew}
@@ -121,7 +123,6 @@ export default function ParfumHommePage() {
               <ProductCard
                 productName={product.name}
                 productImage={product.image}
-                productPrice={product.price}
                 ProductType={product.type}
                 ProductVolume={product.volume}
                 isNew={product.isNew}
@@ -145,7 +146,6 @@ export default function ParfumHommePage() {
                 <ProductCard
                   productName={product.name}
                   productImage={product.image}
-                  productPrice={product.price}
                   ProductType={product.type}
                   ProductVolume={product.volume}
                   isNew={product.isNew}

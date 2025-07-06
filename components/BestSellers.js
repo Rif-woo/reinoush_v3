@@ -11,7 +11,6 @@ const bestSellersData = [
         id: 1,
         productName: "Grâce",
         productImage: "/parfums/Grace50.PNG",
-        productPrice: "8000 Fcfa",
         ProductType: "Femme",
         ProductVolume: "50ml",
         isNew: true
@@ -20,7 +19,6 @@ const bestSellersData = [
         id: 2,
         productName: "Mighty",
         productImage: "/parfums/Mighty50.PNG",
-        productPrice: "8000 Fcfa",
         ProductType: "Homme",
         ProductVolume: "50ml",
         isNew: true
@@ -29,7 +27,6 @@ const bestSellersData = [
         id: 3,
         productName: "Coco Jojo",
         productImage: "/parfums/CocoJojo50.PNG",
-        productPrice: "8000 Fcfa",
         ProductType: "Femme",
         ProductVolume: "50ml",
         isNew: true
@@ -38,7 +35,6 @@ const bestSellersData = [
         id: 4,
         productName: "Favor",
         productImage: "/parfums/Favor50.PNG",
-        productPrice: "8000 Fcfa",
         ProductType: "Homme",
         ProductVolume: "50ml",
         isNew: true
@@ -47,7 +43,6 @@ const bestSellersData = [
         id: 5,
         productName: "Favor",
         productImage: "/parfums/Favor.webp",
-        productPrice: "8000 Fcfa",
         ProductType: "Homme",
         ProductVolume: "30ml",
         isNew: false
@@ -57,7 +52,6 @@ const bestSellersData = [
         id: 6,
         productName: "Grace",
         productImage: "/parfums/Grace.webp",
-        productPrice: "5000 Fcfa",
         ProductType: "Femme",
         ProductVolume: "30ml",
         isNew: false
@@ -108,7 +102,7 @@ export default function BestSellers() {
                             prevBtnDisabled 
                                 ? 'opacity-50 cursor-not-allowed' 
                                 : 'hover:bg-black hover:text-white'
-                        }`}A Propos
+                        }`}
 
                         onClick={scrollPrev}
                         disabled={prevBtnDisabled}
@@ -161,7 +155,6 @@ export default function BestSellers() {
                             <ProductCard
                                 productName={product.productName}
                                 productImage={product.productImage}
-                                productPrice={product.productPrice}
                                 ProductType={product.ProductType}
                                 ProductVolume={product.ProductVolume}
                                 isNew={product.isNew}

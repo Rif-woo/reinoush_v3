@@ -22,12 +22,12 @@ export default function Footer() {
                     <div className="text-center md:text-left">
                         <ul className="space-y-2">
                             <li>
-                                <Link href="/parfum-homme" className="text-gray-600 hover:text-black transition-colors">
+                                <Link href="/" className="text-gray-600 hover:text-black transition-colors">
                                     Accueil
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/" className="text-gray-600 hover:text-black transition-colors">
+                                <Link href="/parfum-homme" className="text-gray-600 hover:text-black transition-colors">
                                     Parfum Hommes
                                 </Link>
                             </li>
@@ -43,10 +43,8 @@ export default function Footer() {
                     <div className="text-center md:text-left">
                         <ul className="space-y-2">
                              <li>
-                                <Link href="#Apropos" className="text-gray-600 hover:text-black transition-colors">
-                                <p>
+                                <Link href="/apropos" className="text-gray-600 hover:text-black transition-colors">
                                     À propos
-                                </p>
                                 </Link>
                             </li>
                             <li>

@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from '@/contexts/CartContext';
 import { CartNotificationProvider } from '@/contexts/CartNotificationContext';
+import { PricingProvider } from '@/contexts/PricingContext';
 
 
 
@@ -24,11 +25,13 @@ export default function RootLayout({ children }) {
       <body
         className={`${anonymous.variable} antialiased`}
       >
-        <CartProvider>
-          <CartNotificationProvider>
-            {children}
-          </CartNotificationProvider>
-        </CartProvider>
+        <PricingProvider>
+          <CartProvider>
+            <CartNotificationProvider>
+              {children}
+            </CartNotificationProvider>
+          </CartProvider>
+        </PricingProvider>
       </body>
     </html>
   );

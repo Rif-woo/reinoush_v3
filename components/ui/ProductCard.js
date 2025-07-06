@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { useCart } from '@/contexts/CartContext';
 import { useCartNotification } from '@/contexts/CartNotificationContext';
+import { usePricing } from '@/contexts/PricingContext';
 
 export default function ProductCard({
     productName = "Grâce", 
     productImage = "/Grace50.PNG", 
-    productPrice = "5000 Fcfa", 
+    productPrice, // Sera remplacé par le prix dynamique
     ProductType = "Femme", 
     ProductVolume = "50ml", 
     isNew = false,
@@ -14,17 +15,21 @@ export default function ProductCard({
 }) {
     const { addItem } = useCart();
     const { showNotification } = useCartNotification();
+    const { getPrice } = usePricing();
+    
+    // Utiliser le prix dynamique basé sur le volume
+    const dynamicPrice = getPrice(ProductVolume);
     
     const handleAddToCart = () => {
         addItem({
             id: productName + '-' + Date.now(), // ID unique
             name: productName,
             image: productImage,
-            price: productPrice,
+            price: dynamicPrice,
             type: ProductType,
             volume: ProductVolume
         });
-        showNotification(productName);between
+        showNotification(productName);
     };
     
     // Function to get the correct background color for product type
@@ -78,7 +83,7 @@ export default function ProductCard({
 
                <div className={`flex items-center ${isHomePage ? 'flex': 'flex-col max-md:gap-2 gap-3'} `}>
                 {/* price text */}
-                    <p className={`${isHomePage ? 'text-xl' : 'text-lg max-md:text-[14px]'} font-bold max-md:text-base`}>{productPrice}</p>
+                    <p className={`${isHomePage ? 'text-xl' : 'text-lg max-md:text-[14px]'} font-bold max-md:text-base`}>{dynamicPrice}</p>
                     <div className={`relative ${isHomePage ? 'w-6 h-6' : 'w-3 h-3 hidden'} `}>
                          <Image
                             src="/mini_arrow.svg"

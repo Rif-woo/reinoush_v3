@@ -52,13 +52,13 @@ export default function NavBar() {
                                     Produits
                                 </Link>
                                 <Link 
-                                    href="#Apropos"
+                                    href="/apropos"
                                     className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
                                 >
                                     À propos
                                 </Link>
                                 <Link 
-                                    href="#contact"
+                                    href="/contact"
                                     className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
                                 >
                                     Contact
@@ -130,14 +130,14 @@ export default function NavBar() {
                                 Produits
                             </Link>
                             <Link 
-                                href="#Apropos"
+                                href="/apropos"
                                 className="text-black hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium transition-colors"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 À propos
                             </Link>
                             <Link 
-                                href="#contact"
+                                href="/contact"
                                 className="text-black hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium transition-colors"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >

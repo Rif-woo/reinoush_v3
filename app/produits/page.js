@@ -5,31 +5,33 @@ import NavBar from '@/components/NavBar';
 import ProductCard from '@/components/ui/ProductCard';
 import SectionTitle from '@/components/ui/SectionTitle';
 import HeroSectionSeparator from '@/components/ui/separator';
+import { usePricing } from '@/contexts/PricingContext';
 
 // Données de test pour les produits
 const productsData = [
-   { id: 2, name: "Divine", image: "/parfums/Divine50.PNG", price: "8000 Fcfa", type: "Femme", volume: "50ml", category: "nouveau", isNew: true },
-  { id: 3, name: "Coco Jojo", image: "/parfums/CocoJojo50.PNG", price: "8000 Fcfa", type: "Femme", volume: "50ml", category: "nouveau", isNew: true },
-  { id: 4, name: "Grâce", image: "/parfums/Grace50.PNG", price: "8000 Fcfa", type: "Femme", volume: "50ml", category: "nouveau", isNew: true },
-  { id: 1, name: "Grâce", image: "/parfums/Grace.webp", price: "5000 Fcfa", type: "Femme", volume: "30ml", category: "bestseller" },
-  { id: 5, name: "Divine", image: "/parfums/Divine.webp", price: "5000 Fcfa", type: "Femme", volume: "30ml", category: "all" },
-  { id: 6, name: "Coco Jojo", image: "/parfums/coco.webp", price: "5000 Fcfa", type: "Femme", volume: "30ml", category: "bestseller" },
-    { id: 7, name: "Mighty", image: "/parfums/Mighty50.PNG", price: "8000 Fcfa", type: "Homme", volume: "50ml", category: "nouveau",isNew: true },
-  { id: 8, name: "Favor", image: "/parfums/Favor50.PNG", price: "8000 Fcfa", type: "Homme", volume: "50ml", category: "nouveau" , isNew: true},
-  { id: 9, name: "Mighty", image: "/parfums/Mighty.webp", price: "5000 Fcfa", type: "Homme", volume: "30ml", category: "bestseller"},
-  { id: 10, name: "Favor", image: "/parfums/Favor.webp", price: "5000 Fcfa", type: "Homme", volume: "30ml", category: "bestseller"},
+   { id: 2, name: "Divine", image: "/parfums/Divine50.PNG", type: "Femme", volume: "50ml", category: "nouveau", isNew: true },
+  { id: 3, name: "Coco Jojo", image: "/parfums/CocoJojo50.PNG", type: "Femme", volume: "50ml", category: "nouveau", isNew: true },
+  { id: 4, name: "Grâce", image: "/parfums/Grace50.PNG", type: "Femme", volume: "50ml", category: "nouveau", isNew: true },
+  { id: 1, name: "Grâce", image: "/parfums/Grace.webp", type: "Femme", volume: "30ml", category: "bestseller" },
+  { id: 5, name: "Divine", image: "/parfums/Divine.webp", type: "Femme", volume: "30ml", category: "all" },
+  { id: 6, name: "Coco Jojo", image: "/parfums/coco.webp", type: "Femme", volume: "30ml", category: "bestseller" },
+    { id: 7, name: "Mighty", image: "/parfums/Mighty50.PNG", type: "Homme", volume: "50ml", category: "nouveau",isNew: true },
+  { id: 8, name: "Favor", image: "/parfums/Favor50.PNG", type: "Homme", volume: "50ml", category: "nouveau" , isNew: true},
+  { id: 9, name: "Mighty", image: "/parfums/Mighty.webp", type: "Homme", volume: "30ml", category: "bestseller"},
+  { id: 10, name: "Favor", image: "/parfums/Favor.webp", type: "Homme", volume: "30ml", category: "bestseller"},
 
 ];
 
 export default function ProduitsPage() {
   const [priceFilter, setPriceFilter] = useState('all');
   const [volumeFilter, setVolumeFilter] = useState('all');
+  const { getPriceNumeric, currency } = usePricing();
 
   // Filtrer les produits
   const filteredProducts = productsData.filter(product => {
     const priceMatch = priceFilter === 'all' || 
-      (priceFilter === '8000' && product.price.includes('8000')) ||
-      (priceFilter === '5000' && product.price.includes('5000'));
+      (priceFilter === '50ml' && product.volume === '50ml') ||
+      (priceFilter === '30ml' && product.volume === '30ml');
     const volumeMatch = volumeFilter === 'all' || product.volume === volumeFilter;
     
     return priceMatch && volumeMatch;
@@ -71,8 +73,8 @@ export default function ProduitsPage() {
               className="border border-gray-300 rounded-md px-3 py-2 text-sm bg-white flex-1 sm:flex-none min-w-[140px]"
             >
               <option value="all">Tous les prix</option>
-              <option value="8000">8000 Fcfa</option>
-              <option value="5000">5000 Fcfa</option>
+              <option value="50ml">{getPriceNumeric('50ml')} {currency === 'EUR' ? '€' : 'Fcfa'} (50ml)</option>
+              <option value="30ml">{getPriceNumeric('30ml')} {currency === 'EUR' ? '€' : 'Fcfa'} (30ml)</option>
             </select>
           </div>
 
@@ -104,7 +106,6 @@ export default function ProduitsPage() {
               <ProductCard
                 productName={product.name}
                 productImage={product.image}
-                productPrice={product.price}
                 ProductType={product.type}
                 ProductVolume={product.volume}
                 isNew={product.isNew}
@@ -128,7 +129,6 @@ export default function ProduitsPage() {
               <ProductCard
                 productName={product.name}
                 productImage={product.image}
-                productPrice={product.price}
                 ProductType={product.type}
                 ProductVolume={product.volume}
                 isNew={product.isNew}
@@ -152,7 +152,6 @@ export default function ProduitsPage() {
               <ProductCard
                 productName={product.name}
                 productImage={product.image}
-                productPrice={product.price}
                 ProductType={product.type}
                 ProductVolume={product.volume}
                 isNew={product.isNew}
