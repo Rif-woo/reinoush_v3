@@ -48,7 +48,7 @@ export default function ParfumHommePage() {
 
       {/* Header de la page */}
       <div className="text-center py-12">
-        <h1 className="text-4xl font-bold text-black mb-4">Parfums Homme</h1>
+        <h1 className="text-4xl font-bold text-black mb-4">Tous nos Produits Homme</h1>
         <p className="text-lg text-gray-700 max-w-3xl mx-auto">
           Découvrez notre collection raffinée de parfums masculins, conçus avec<br />
           excellence pour révéler votre caractère unique.
@@ -68,13 +68,13 @@ export default function ParfumHommePage() {
               className="border border-gray-300 rounded-md px-3 py-1 text-sm bg-white"
             >
               <option value="all">Tous les prix</option>
-              <option value="3000">3000 Fcfa</option>
+              <option value="8000">8000 Fcfa</option>
               <option value="5000">5000 Fcfa</option>
             </select>
           </div>
 
           {/* Filtre par volume */}
-          <div className="flex items-center w-full gap-2">
+          <div className="flex items-center gap-2">
             <label className="text-sm font-medium text-gray-700">Volume:</label>
             <select 
               value={volumeFilter} 

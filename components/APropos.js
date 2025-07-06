@@ -5,7 +5,7 @@ export default function APropos() {
     return (
         <div className="w-full flex flex-col justify-center items-center gap-24 py-20 px-4" id="Apropos">
             {/* Section Title */}
-                <SectionTitle title="A Propos" />
+                <SectionTitle title="À Propos" />
             
             {/* Main Content */}
             <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

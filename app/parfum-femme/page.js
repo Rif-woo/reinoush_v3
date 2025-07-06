@@ -48,7 +48,7 @@ export default function ParfumFemmePage() {
 
       {/* Header de la page */}
       <div className="text-center py-8 sm:py-12 px-4">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-4">Parfums Femme</h1>
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-4">Tous nos Produits Femme</h1>
         <p className="text-base sm:text-lg text-gray-700 max-w-2xl sm:max-w-3xl mx-auto leading-relaxed">
           Découvrez notre collection exclusive de parfums féminins, créés avec
           <span className="hidden sm:inline"><br /></span>
@@ -70,7 +70,7 @@ export default function ParfumFemmePage() {
               className="border border-gray-300 rounded-md px-3 py-1 text-sm bg-white"
             >
               <option value="all">Tous les prix</option>
-              <option value="3000">3000 Fcfa</option>
+              <option value="8000">8000 Fcfa</option>
               <option value="5000">5000 Fcfa</option>
             </select>
           </div>

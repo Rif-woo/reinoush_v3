@@ -5,6 +5,7 @@ import AvisClients from "@/components/AvisClients";
 import BestSellers from "@/components/BestSellers";
 import Categories from "@/components/Categories";
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 import HeroSection from "@/components/heroSection";
 import NavBar from "@/components/NavBar";
 import NoteOlfactive from "@/components/NoteOlfactive";
@@ -27,6 +28,7 @@ export default function Home() {
         <APropos></APropos>
         <AvisClients></AvisClients>
         <Contact></Contact>
+        <Footer></Footer>
       </main>
     </div>
   );
