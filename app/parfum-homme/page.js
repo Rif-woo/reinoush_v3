@@ -139,7 +139,7 @@ export default function ParfumHommePage() {
           <SectionTitle title="Tous Nos Produits Homme" seeAll={false}></SectionTitle>
         </div>
         
-        <div className="flex flex-wrap max-md:justify-between sm:justify-start gap-4 sm:gap-6">
+        <div className="w-full flex flex-wrap max-md:justify-around sm:justify-start gap-4 sm:gap-6">
           {allProducts.map((product) => (
              <div key={product.id} className="flex-shrink-0">
                 <ProductCard
