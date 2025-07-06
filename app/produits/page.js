@@ -8,15 +8,17 @@ import HeroSectionSeparator from '@/components/ui/separator';
 
 // Données de test pour les produits
 const productsData = [
-  { id: 1, name: "Grace", image: "/Grace50.PNG", price: "5000 Fcfa", type: "Femme", volume: "50ml", category: "bestseller" },
-  { id: 2, name: "Grace", image: "/Grace50.PNG", price: "3000 Fcfa", type: "Femme", volume: "30ml", category: "bestseller" },
-  { id: 3, name: "Grace", image: "/Grace50.PNG", price: "5000 Fcfa", type: "Femme", volume: "50ml", category: "nouveau", isNew: true },
-  { id: 4, name: "Grace", image: "/Grace50.PNG", price: "3000 Fcfa", type: "Femme", volume: "30ml", category: "nouveau", isNew: true },
-  { id: 5, name: "Grace", image: "/Grace50.PNG", price: "5000 Fcfa", type: "Femme", volume: "50ml", category: "all" },
-  { id: 6, name: "Mighty", image: "/Mighty50.PNG", price: "5000 Fcfa", type: "Homme", volume: "50ml", category: "all" },
-  { id: 7, name: "Mighty", image: "/Mighty50.PNG", price: "3000 Fcfa", type: "Homme", volume: "30ml", category: "all" },
-  { id: 8, name: "Grace", image: "/Grace50.PNG", price: "3000 Fcfa", type: "Femme", volume: "30ml", category: "all" },
-  { id: 9, name: "Grace", image: "/Grace50.PNG", price: "5000 Fcfa", type: "Femme", volume: "50ml", category: "all" },
+   { id: 2, name: "Divine", image: "/parfums/Divine50.PNG", price: "8000 Fcfa", type: "Femme", volume: "50ml", category: "nouveau", isNew: true },
+  { id: 3, name: "Coco Jojo", image: "/parfums/CocoJojo50.PNG", price: "8000 Fcfa", type: "Femme", volume: "50ml", category: "nouveau", isNew: true },
+  { id: 4, name: "Grâce", image: "/parfums/Grace50.PNG", price: "8000 Fcfa", type: "Femme", volume: "50ml", category: "nouveau", isNew: true },
+  { id: 1, name: "Grâce", image: "/parfums/Grace.webp", price: "5000 Fcfa", type: "Femme", volume: "30ml", category: "bestseller" },
+  { id: 5, name: "Divine", image: "/parfums/Divine.webp", price: "5000 Fcfa", type: "Femme", volume: "30ml", category: "all" },
+  { id: 6, name: "Coco Jojo", image: "/parfums/coco.webp", price: "5000 Fcfa", type: "Femme", volume: "30ml", category: "bestseller" },
+    { id: 7, name: "Mighty", image: "/parfums/Mighty50.PNG", price: "8000 Fcfa", type: "Homme", volume: "50ml", category: "nouveau",isNew: true },
+  { id: 8, name: "Favor", image: "/parfums/Favor50.PNG", price: "8000 Fcfa", type: "Homme", volume: "50ml", category: "nouveau" , isNew: true},
+  { id: 9, name: "Mighty", image: "/parfums/Mighty.webp", price: "5000 Fcfa", type: "Homme", volume: "30ml", category: "bestseller"},
+  { id: 10, name: "Favor", image: "/parfums/Favor.webp", price: "5000 Fcfa", type: "Homme", volume: "30ml", category: "bestseller"},
+
 ];
 
 export default function ProduitsPage() {
@@ -26,7 +28,7 @@ export default function ProduitsPage() {
   // Filtrer les produits
   const filteredProducts = productsData.filter(product => {
     const priceMatch = priceFilter === 'all' || 
-      (priceFilter === '3000' && product.price.includes('3000')) ||
+      (priceFilter === '8000' && product.price.includes('8000')) ||
       (priceFilter === '5000' && product.price.includes('5000'));
     const volumeMatch = volumeFilter === 'all' || product.volume === volumeFilter;
     
@@ -69,7 +71,7 @@ export default function ProduitsPage() {
               className="border border-gray-300 rounded-md px-3 py-2 text-sm bg-white flex-1 sm:flex-none min-w-[140px]"
             >
               <option value="all">Tous les prix</option>
-              <option value="3000">3000 Fcfa</option>
+              <option value="8000">8000 Fcfa</option>
               <option value="5000">5000 Fcfa</option>
             </select>
           </div>
@@ -144,7 +146,7 @@ export default function ProduitsPage() {
           <SectionTitle title="Tous Nos Produits" seeAll={false}></SectionTitle>  
         </div>
         
-        <div className="flex flex-wrap justify-between sm:justify-around gap-4 sm:gap-6">
+        <div className="flex flex-wrap max-md:justify-between sm:justify-start gap-4 sm:gap-6">
           {allProducts.map((product) => (
             <div key={product.id} className="flex-shrink-0">
               <ProductCard

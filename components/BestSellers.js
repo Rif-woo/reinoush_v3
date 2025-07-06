@@ -9,9 +9,9 @@ import SectionTitle from "./ui/SectionTitle";
 const bestSellersData = [
     {
         id: 1,
-        productName: "Grace",
-        productImage: "/Grace50.PNG",
-        productPrice: "5000 Fcfa",
+        productName: "Grâce",
+        productImage: "/parfums/Grace50.PNG",
+        productPrice: "8000 Fcfa",
         ProductType: "Femme",
         ProductVolume: "50ml",
         isNew: true
@@ -19,8 +19,8 @@ const bestSellersData = [
     {
         id: 2,
         productName: "Mighty",
-        productImage: "/Mighty50.PNG",
-        productPrice: "5000 Fcfa",
+        productImage: "/parfums/Mighty50.PNG",
+        productPrice: "8000 Fcfa",
         ProductType: "Homme",
         ProductVolume: "50ml",
         isNew: true
@@ -28,17 +28,17 @@ const bestSellersData = [
     {
         id: 3,
         productName: "Coco Jojo",
-        productImage: "/CocoJojo50.PNG",
-        productPrice: "5000 Fcfa",
-        ProductType: "Homme",
+        productImage: "/parfums/CocoJojo50.PNG",
+        productPrice: "8000 Fcfa",
+        ProductType: "Femme",
         ProductVolume: "50ml",
-        isNew: false
+        isNew: true
     },
     {
         id: 4,
         productName: "Favor",
-        productImage: "/Favor50.PNG",
-        productPrice: "5000 Fcfa",
+        productImage: "/parfums/Favor50.PNG",
+        productPrice: "8000 Fcfa",
         ProductType: "Homme",
         ProductVolume: "50ml",
         isNew: true
@@ -46,20 +46,20 @@ const bestSellersData = [
     {
         id: 5,
         productName: "Favor",
-        productImage: "/Favor.webp",
-        productPrice: "5000 Fcfa",
+        productImage: "/parfums/Favor.webp",
+        productPrice: "8000 Fcfa",
         ProductType: "Homme",
-        ProductVolume: "50ml",
+        ProductVolume: "30ml",
         isNew: false
     },
 
     {
         id: 6,
         productName: "Grace",
-        productImage: "/Grace.webp",
+        productImage: "/parfums/Grace.webp",
         productPrice: "5000 Fcfa",
         ProductType: "Femme",
-        ProductVolume: "50ml",
+        ProductVolume: "30ml",
         isNew: false
     },
 

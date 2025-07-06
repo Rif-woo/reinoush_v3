@@ -8,16 +8,11 @@ import SectionTitle from '@/components/ui/SectionTitle';
 
 // Données des parfums homme
 const hommeProductsData = [
-  { id: 1, name: "Mighty", image: "/Mighty50.PNG", price: "5000 Fcfa", type: "Homme", volume: "50ml", category: "bestseller" },
-  { id: 2, name: "Mighty", image: "/Mighty50.PNG", price: "3000 Fcfa", type: "Homme", volume: "30ml", category: "bestseller" },
-  { id: 3, name: "Mighty", image: "/Mighty50.PNG", price: "5000 Fcfa", type: "Homme", volume: "50ml", category: "nouveau", isNew: true },
-  { id: 4, name: "Mighty", image: "/Mighty50.PNG", price: "3000 Fcfa", type: "Homme", volume: "30ml", category: "nouveau", isNew: true },
-  { id: 5, name: "Mighty", image: "/Mighty50.PNG", price: "5000 Fcfa", type: "Homme", volume: "50ml", category: "all" },
-  { id: 6, name: "Mighty", image: "/Mighty50.PNG", price: "3000 Fcfa", type: "Homme", volume: "30ml", category: "all" },
-  { id: 7, name: "Mighty", image: "/Mighty50.PNG", price: "5000 Fcfa", type: "Homme", volume: "50ml", category: "all" },
-  { id: 8, name: "Mighty", image: "/Mighty50.PNG", price: "3000 Fcfa", type: "Homme", volume: "30ml", category: "all" },
-  { id: 9, name: "Mighty", image: "/Mighty50.PNG", price: "5000 Fcfa", type: "Homme", volume: "50ml", category: "all" },
-];
+  { id: 1, name: "Mighty", image: "/parfums/Mighty50.PNG", price: "8000 Fcfa", type: "Homme", volume: "50ml", category: "nouveau",isNew: true },
+  { id: 2, name: "Favor", image: "/parfums/Favor50.PNG", price: "8000 Fcfa", type: "Homme", volume: "50ml", category: "nouveau" , isNew: true},
+  { id: 3, name: "Mighty", image: "/parfums/Mighty.webp", price: "5000 Fcfa", type: "Homme", volume: "30ml", category: "bestseller"},
+  { id: 4, name: "Favor", image: "/parfums/Favor.webp", price: "5000 Fcfa", type: "Homme", volume: "30ml", category: "bestseller"},
+  ];
 
 export default function ParfumHommePage() {
   const [priceFilter, setPriceFilter] = useState('all');
@@ -26,7 +21,7 @@ export default function ParfumHommePage() {
   // Filtrer les produits
   const filteredProducts = hommeProductsData.filter(product => {
     const priceMatch = priceFilter === 'all' || 
-      (priceFilter === '3000' && product.price.includes('3000')) ||
+      (priceFilter === '8000' && product.price.includes('8000')) ||
       (priceFilter === '5000' && product.price.includes('5000'));
     const volumeMatch = volumeFilter === 'all' || product.volume === volumeFilter;
     
@@ -144,7 +139,7 @@ export default function ParfumHommePage() {
           <SectionTitle title="Tous Nos Produits Homme" seeAll={false}></SectionTitle>
         </div>
         
-        <div className="flex flex-wrap justify-between sm:justify-around gap-4 sm:gap-6">
+        <div className="flex flex-wrap max-md:justify-between sm:justify-start gap-4 sm:gap-6">
           {allProducts.map((product) => (
              <div key={product.id} className="flex-shrink-0">
                 <ProductCard

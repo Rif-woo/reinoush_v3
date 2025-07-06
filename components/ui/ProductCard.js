@@ -3,7 +3,7 @@ import { useCart } from '@/contexts/CartContext';
 import { useCartNotification } from '@/contexts/CartNotificationContext';
 
 export default function ProductCard({
-    productName = "Grace", 
+    productName = "Grâce", 
     productImage = "/Grace50.PNG", 
     productPrice = "5000 Fcfa", 
     ProductType = "Femme", 
@@ -40,20 +40,20 @@ export default function ProductCard({
     };
 
     return (
-        <div className={`flex flex-col ${isHomePage ? 'w-[280px] sm:w-[350px] lg:w-[350px] h-[450px] sm:h-[500px] lg:h-[550px] max-md:w-[310px]' : 'w-[160px] sm:w-[220px] lg:w-[250px] h-[290px] sm:h-[320px] lg:h-[350px]'} mx-auto `}>
+        <div className={`flex flex-col ${isHomePage ? 'w-[280px] sm:w-[350px] lg:w-[370px] h-[450px] sm:h-[500px] lg:h-[550px] max-md:w-[310px]' : 'w-[160px] sm:w-[220px] lg:w-[250px] h-[290px] sm:h-[320px] lg:h-[350px]'} mx-auto `}>
             <div className="relative w-full h-full p-3 bg-black flex">
                 <div className="w-full flex justify-between">
                     {isNew && (
-                        <div className={`z-10 ${isHomePage ? 'w-28 h-7' : 'w-20 h-7'} rounded-md bg-black max-md:w-fit max-md:h-fit max-md:px-2 max-md:rounded-sm`}>
+                        <div className={`z-10 ${isHomePage ? 'w-28 h-7' : 'w-fit h-fit sm:px-2'} rounded-md bg-black max-md:w-fit max-md:h-fit max-md:px-2 max-md:rounded-sm`}>
 
-                            <p className={`text-white ${isHomePage ? 'text-lg' : 'text-lg max-md:text-sm'}  text-center`}>Nouveau</p>
+                            <p className={`text-white ${isHomePage ? 'text-lg' : 'text-base max-md:text-base'}  text-center`}>Nouveau</p>
                         </div>
                     )}
                     {!isNew && <div></div>}
 
-                    <div className={`z-10 ${isHomePage ? 'w-28 h-7 ' : 'w-20 h-7 '} rounded-md ${getTypeColor(ProductType)} max-md:w-fit max-md:h-fit max-md:px-2 max-md:rounded-sm`}>
+                    <div className={`z-10 ${isHomePage ? 'w-28 h-7 ' : 'w-fit h-fit sm:px-2 '} rounded-md ${getTypeColor(ProductType)} max-md:w-fit max-md:h-fit max-md:px-2 max-md:rounded-sm`}>
 
-                        <p className={`text-white ${isHomePage ? 'text-lg' : 'text-lg max-md:text-sm'}  text-center`}>{ProductType}</p>
+                        <p className={`text-white ${isHomePage ? 'text-lg' : 'text-base max-md:text-base'}  text-center`}>{ProductType}</p>
                     </div>
                 </div>
 
