@@ -93,7 +93,7 @@ export default function ProduitsPage() {
       </div>
 
       {/* Section Nos Best Sellers */}
-      <div className="max-w-6xl w-full max-md:px-1 px-4 py-8">
+      <div className="max-w-6xl max-md:w-full max-md:px-1 mx-auto px-4 py-8">
         <div className="flex items-center gap-3 mb-8">
          <SectionTitle title="Nos Best Sellers" seeAll={false}></SectionTitle>
         </div>
@@ -116,7 +116,7 @@ export default function ProduitsPage() {
       </div>
 
       {/* Section Nouveautés */}
-      <div className="max-w-6xl px-4 max-md:px-1 py-8">
+      <div className="max-w-6xl max-md:w-full px-4 mx-auto max-md:px-1 py-8">
 
         <div className="flex items-center gap-3 mb-8">
           <SectionTitle title="Nouveautés" seeAll={false}></SectionTitle>

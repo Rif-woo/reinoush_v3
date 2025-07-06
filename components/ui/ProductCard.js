@@ -40,7 +40,7 @@ export default function ProductCard({
     };
 
     return (
-        <div className={`flex flex-col ${isHomePage ? 'w-[280px] sm:w-[350px] lg:w-[370px] h-[450px] sm:h-[500px] lg:h-[550px] max-md:w-[310px]' : 'w-[170px] sm:w-[220px] lg:w-[250px] h-[290px] sm:h-[320px] lg:h-[350px]'} mx-auto `}>
+        <div className={`flex flex-col ${isHomePage ? 'w-[280px] sm:w-[350px] lg:w-[370px] h-[450px] sm:h-[500px] lg:h-[550px] max-md:w-[310px]' : 'w-[170px] sm:w-[220px] lg:w-[250px] h-[300px] sm:h-[350px] lg:h-[390px] border-2'} mx-auto `}>
             <div className="relative w-full h-full p-3 bg-black flex">
                 <div className="w-full flex justify-between">
                     {isNew && (
@@ -68,17 +68,17 @@ export default function ProductCard({
             <div className={`w-full ${isHomePage ? 'h-1/9 border-2' : 'h-3/9 flex-col max-md:justify-center border-0'}  flex justify-between items-center p-2`}>
                <div className="flex items-center gap-2">
                     {/* fragance name text */}
-                    <p className={`text-black ${isHomePage ? 'text-xl' : 'text-sm max-md:text-[18px]'}  font-medium max-md:text-base`}>{productName}</p>
+                    <p className={`text-black ${isHomePage ? 'text-xl' : 'text-lg max-md:text-[18px]'}  font-medium max-md:text-base`}>{productName}</p>
                     {isHomePage && 
                         <div className="rounded-full w-2 h-2 bg-black"></div>
                     }
                     {/* fragance volume text */}
-                    <p className={`${isHomePage ? 'text-xl' : 'text-sm max-md:text-[16px]'} max-md:text-base`}>{ProductVolume}</p>
+                    <p className={`${isHomePage ? 'text-xl' : 'text-lg max-md:text-[16px]'} max-md:text-base`}>{ProductVolume}</p>
                </div>
 
-               <div className={`flex items-center ${isHomePage ? 'flex': 'flex-col max-md:gap-2'} `}>
+               <div className={`flex items-center ${isHomePage ? 'flex': 'flex-col max-md:gap-2 gap-3'} `}>
                 {/* price text */}
-                    <p className={`${isHomePage ? 'text-xl' : 'text-sm max-md:text-[14px]'} font-bold max-md:text-base`}>{productPrice}</p>
+                    <p className={`${isHomePage ? 'text-xl' : 'text-lg max-md:text-[14px]'} font-bold max-md:text-base`}>{productPrice}</p>
                     <div className={`relative ${isHomePage ? 'w-6 h-6' : 'w-3 h-3 hidden'} `}>
                          <Image
                             src="/mini_arrow.svg"
@@ -97,7 +97,8 @@ export default function ProductCard({
                             width={isHomePage ? 26 : 20 }
                             height={isHomePage ? 40 : 20}
                          />
-                    </div> : <div 
+                    </div> : 
+                    <div 
                         onClick={handleAddToCart}
                         className="relative bg-black py-1 px-8 rounded-none cursor-pointer hover:bg-gray-800 transition-colors" aria-label="Add to cart">
                          <p className="text-white">Acheter</p>
