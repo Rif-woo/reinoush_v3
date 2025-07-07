@@ -16,18 +16,20 @@ const productsData = [
     id: 1, 
     name: "Coco Jojo", 
     image: "/parfums/CocoJojo50.PNG", 
+    image30ml: "/parfums/coco.webp", 
     price: "8000 Fcfa", 
     type: "Femme", 
     volume: "50ml", 
     description: "Un parfum à la fois raffiné et élégant, incarnant la grâce féminine",
-    note_de_coeur: ["pêche", "miel", "fleur d’oranger"],
+    note_de_coeur: ["pêche", "miel", "fleur d'oranger"],
     note_de_tete: ["orange", "mandarine"], 
-    note_de_fond: ["cire d’abeille", "caramel"]
+    note_de_fond: ["cire d'abeille", "caramel"]
   },
   { 
     id: 2, 
     name: "Mighty", 
     image: "/parfums/Mighty50.PNG", 
+    image30ml: "/parfums/Mighty.webp", 
     price: "3000 Fcfa", 
     type: "Femme", 
     volume: "50ml", 
@@ -39,7 +41,8 @@ const productsData = [
   { 
     id: 3, 
     name: "Favor", 
-    image: "/parfums/Grace50.PNG", 
+    image: "/parfums/Favor50.PNG", 
+    image30ml: "/parfums/favor.webp", 
     price: "5000 Fcfa", 
     type: "Femme", 
     volume: "50ml", 
@@ -52,18 +55,20 @@ const productsData = [
     id: 4, 
     name: "Divine", 
     image: "/parfums/Divine50.PNG", 
+    image30ml: "/parfums/Divine.webp", 
     price: "8000 Fcfa", 
     type: "Femme", 
     volume: "50ml", 
     description: "Une aura mystérieuse qui captive et intrigue",
     note_de_coeur: ["Ambrette", "Iris"],
-    note_de_tete: ["Bergamote", "Fleur d’oranger"], 
+    note_de_tete: ["Bergamote", "Fleur d'oranger"], 
     note_de_fond: ["Cèdre", "vanille"]
   },
   { 
     id: 5, 
     name: "Grâce", 
     image: "/parfums/Grace50.PNG", 
+    image30ml: "/parfums/Grace.webp", 
     price: "8000 Fcfa", 
     type: "Femme", 
     volume: "50ml", 
@@ -174,12 +179,15 @@ export default function NoteOlfactive() {
   
   // Fonction pour ajouter au panier avec le volume sélectionné
   const addToCartWithVolume = (selectedVolume) => {
+    // Sélectionner la bonne image selon le volume
+    const productImage = selectedVolume === '30ml' ? currentProduct.image30ml : currentProduct.image;
+    
     const productToAdd = {
       id: `${currentProduct.id}-${selectedVolume}`,
       name: currentProduct.name,
       price: getPrice(selectedVolume),
       numericPrice: getPriceNumeric(selectedVolume),
-      image: currentProduct.image,
+      image: productImage,
       type: currentProduct.type,
       volume: selectedVolume
     };
