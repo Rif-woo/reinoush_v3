@@ -50,7 +50,7 @@ const bestSellersData = [
 
     {
         id: 6,
-        productName: "Grace",
+        productName: "Grâce",
         productImage: "/parfums/Grace.webp",
         ProductType: "Femme",
         ProductVolume: "30ml",

@@ -30,8 +30,8 @@ export default function AvisClients() {
         },
         {
             id: 3,
-            text: "Nathi nieup taxaw ! Li nekh neu lolouuuu 😭❤️ Favor gui moy sama favori😍 😂 Mighty gui dangay bondit 😂❤️.",
-            author: "Mor Badiane",
+            text: "Ma reine je sens bonnnnnnn Mamaaaaaaa✨🤌🏾.",
+            author: "Myriame Diame",
             rating: 3
         },
         {

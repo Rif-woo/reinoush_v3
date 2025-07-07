@@ -5,6 +5,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionTitle from "./ui/SectionTitle";
 import Image from "next/image";
+import { useCart } from "@/contexts/CartContext";
+import { useCartNotification } from "@/contexts/CartNotificationContext";
+import { usePricing } from "@/contexts/PricingContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,7 +30,7 @@ const productsData = [
     image: "/parfums/Mighty50.PNG", 
     price: "3000 Fcfa", 
     type: "Femme", 
-    volume: "30ml", 
+    volume: "50ml", 
     description: "Une fragrance puissante qui révèle votre force intérieure",
     note_de_coeur: ["Fruits rouges", "Cannelle"], 
     note_de_tete: ["mente", "lavande"], 
@@ -156,6 +159,36 @@ export default function NoteOlfactive() {
   const productInfoRef = useRef(null);
   const notesRef = useRef(null);
   
+  // Hooks pour le panier et les prix
+  const { addItem } = useCart();
+  const { showNotification } = useCartNotification();
+  const { getPrice, getPriceNumeric } = usePricing();
+  
+  // État pour la modal de sélection de volume
+  const [showVolumeModal, setShowVolumeModal] = useState(false);
+  
+  // Fonction pour ouvrir la modal de sélection de volume
+  const handleAddToCart = () => {
+    setShowVolumeModal(true);
+  };
+  
+  // Fonction pour ajouter au panier avec le volume sélectionné
+  const addToCartWithVolume = (selectedVolume) => {
+    const productToAdd = {
+      id: `${currentProduct.id}-${selectedVolume}`,
+      name: currentProduct.name,
+      price: getPrice(selectedVolume),
+      numericPrice: getPriceNumeric(selectedVolume),
+      image: currentProduct.image,
+      type: currentProduct.type,
+      volume: selectedVolume
+    };
+    
+    addItem(productToAdd);
+    showNotification(`${currentProduct.name} - ${selectedVolume}`);
+    setShowVolumeModal(false);
+  };
+  
   // Animation d'entrée du composant
   useEffect(() => {
     if (containerRef.current) {
@@ -234,7 +267,10 @@ export default function NoteOlfactive() {
             </p>
           </div>
           
-          <button className="bg-[#FFF8E6] hover:bg-[#F5EFD6] text-black px-8 py-3 border border-black font-medium text-base transition-colors duration-300">
+          <button 
+            onClick={handleAddToCart}
+            className="bg-[#FFF8E6] hover:bg-[#F5EFD6] text-black px-8 py-3 border border-black font-medium text-base transition-colors duration-300 hover:scale-105 active:scale-95 transform"
+          >
             Acheter
           </button>
           
@@ -277,7 +313,7 @@ export default function NoteOlfactive() {
           ref={imageRef}
           className="relative w-64 h-80 sm:w-72 sm:h-96 lg:w-80 lg:h-[480px] xl:w-[320px] xl:h-[500px] group"
         >
-          <div className="relative w-full h-full bg-white rounded-lg overflow-hidden shadow-lg transform group-hover:scale-105 transition-all duration-500">
+          <div className={`relative w-full h-full bg-white ${showVolumeModal && 'hidden'} rounded-lg overflow-hidden shadow-lg transform group-hover:scale-105 transition-all duration-500`}>
             <Image
               src={currentProduct.image}
               alt={currentProduct.name}
@@ -311,6 +347,49 @@ export default function NoteOlfactive() {
           </div>
         </div>
       </div>
+      
+      {/* Modal de sélection de volume */}
+      {showVolumeModal && (
+        <div className="fixed inset-0 bg-black opacity-70 flex items-center justify-center z-40 p-4">
+          <div className="bg-white z-50 rounded-lg p-6 max-w-md w-full mx-4 transform transition-all duration-300">
+            <h3 className="text-xl font-bold text-black mb-4 text-center">
+              Choisir le volume
+            </h3>
+            
+            <p className="text-gray-600 mb-6 text-center">
+              Sélectionnez le volume pour <span className="font-semibold">{currentProduct.name}</span>
+            </p>
+            
+            <div className="space-y-4">
+              {/* Option 30ml */}
+              <button
+                onClick={() => addToCartWithVolume('30ml')}
+                className="w-full bg-[#FFF8E6] hover:bg-[#F5EFD6] text-black p-4 border border-black font-medium text-base transition-all duration-300 hover:scale-105 active:scale-95 transform rounded-lg flex justify-between items-center"
+              >
+                <span>30ml</span>
+                <span className="font-bold">{getPrice('30ml')}</span>
+              </button>
+              
+              {/* Option 50ml */}
+              <button
+                onClick={() => addToCartWithVolume('50ml')}
+                className="w-full bg-[#FFF8E6] hover:bg-[#F5EFD6] text-black p-4 border border-black font-medium text-base transition-all duration-300 hover:scale-105 active:scale-95 transform rounded-lg flex justify-between items-center"
+              >
+                <span>50ml</span>
+                <span className="font-bold">{getPrice('50ml')}</span>
+              </button>
+            </div>
+            
+            {/* Bouton d'annulation */}
+            <button
+              onClick={() => setShowVolumeModal(false)}
+              className="w-full mt-4 bg-gray-200 hover:bg-gray-300 text-gray-800 p-3 font-medium text-base transition-colors duration-300 rounded-lg"
+            >
+              Annuler
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
