@@ -35,7 +35,7 @@ const productsData = [
     volume: "50ml", 
     description: "Une fragrance puissante qui révèle votre force intérieure",
     note_de_coeur: ["Fruits rouges", "Cannelle"], 
-    note_de_tete: ["mente", "lavande"], 
+    note_de_tete: ["menthe", "lavande"], 
     note_de_fond: ["Vanille", "café", "bois ambré"]
   },
   { 
