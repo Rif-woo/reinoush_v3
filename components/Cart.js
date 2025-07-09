@@ -3,10 +3,11 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { useCart } from '@/contexts/CartContext';
+import { usePricing } from '@/contexts/PricingContext';
 import PaymentModal from './PaymentModal';
 
 export default function Cart({ isOpen, onClose }) {
-  const { 
+const { 
     items, 
     totalItems, 
     totalPrice, 
@@ -14,6 +15,8 @@ export default function Cart({ isOpen, onClose }) {
     removeItem, 
     clearCart 
   } = useCart();
+
+  const { currency, getPrice } = usePricing();
   
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   
@@ -86,7 +89,7 @@ export default function Cart({ isOpen, onClose }) {
               <div className="flex justify-between items-center mb-4">
                 <span className="text-lg font-bold text-gray-900">Total:</span>
                 <span className="text-lg font-bold text-gray-900">
-                  {totalPrice.toLocaleString()} Fcfa
+                  {totalPrice.toLocaleString()} {currency === 'EUR' ? '€' : 'Fcfa'}
                 </span>
               </div>
               
@@ -122,6 +125,7 @@ export default function Cart({ isOpen, onClose }) {
 
 // Composant pour un item individuel du panier
 function CartItem({ item, onUpdateQuantity, onRemove }) {
+  const { getPrice } = usePricing();
   const price = parseInt(item.price.replace(/[^\d]/g, '')) || 0;
   const subtotal = price * item.quantity;
 
@@ -146,7 +150,7 @@ function CartItem({ item, onUpdateQuantity, onRemove }) {
           {item.type} • {item.volume}
         </p>
         <p className="text-sm font-medium text-gray-900">
-          {price.toLocaleString()} Fcfa
+{getPrice(item.volume)}
         </p>
       </div>
 
