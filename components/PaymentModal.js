@@ -8,7 +8,7 @@ import { usePromo } from '@/contexts/PromoContext';
 export default function PaymentModal({ isOpen, onClose, onSuccess }) {
   const { items, clearCart } = useCart();
   const { getPriceNumeric, currency } = usePricing();
-  const { applyPromo, getDiscount, appliedPromo } = usePromo();
+  const { applyPromo, getDiscount, appliedPromo, resetPromo } = usePromo();
   
   // États pour le code promo
   const [promoCode, setPromoCode] = useState('');
@@ -47,6 +47,10 @@ export default function PaymentModal({ isOpen, onClose, onSuccess }) {
       });
       setLocation(null);
       setLocationError('');
+      // Réinitialiser les champs du code promo
+      setPromoCode('');
+      setPromoError('');
+      setPromoSuccess('');
     }
   }, [isOpen]);
 
@@ -121,11 +125,20 @@ export default function PaymentModal({ isOpen, onClose, onSuccess }) {
     setIsSubmitting(true);
 
     try {
-      // Préparer les données de commande
+      // Préparer les données de commande avec les prix unitaires
+      const itemsWithUnitPrices = items.map(item => ({
+        ...item,
+        unitPrice: getPriceNumeric(item.volume)
+      }));
+      
       const orderData = {
         client: formData,
-        items: items,
+        items: itemsWithUnitPrices,
+        subtotal: subtotal,
+        discount: discount,
         totalPrice: totalPrice,
+        appliedPromo: appliedPromo,
+        currency: currency,
         location: location,
         orderDate: new Date().toISOString()
       };
@@ -145,6 +158,7 @@ export default function PaymentModal({ isOpen, onClose, onSuccess }) {
 
       // Succès
       clearCart();
+      resetPromo(); // Réinitialiser le code promo après la commande
       onSuccess();
       onClose();
       alert('Commande envoyée avec succès ! Vous serez contacté dans les plus brefs délais.');
@@ -168,11 +182,11 @@ export default function PaymentModal({ isOpen, onClose, onSuccess }) {
       />
       
       {/* Modal */}
-      <div className="absolute inset-0 flex items-center justify-center p-4">
-        <div className="bg-[#FCFAF5] rounded-lg shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
+      <div className="absolute inset-0 flex items-center justify-center p-2 sm:p-4">
+        <div className="bg-[#FCFAF5] rounded-lg shadow-xl w-full max-w-md max-h-[95vh] sm:max-h-[90vh] overflow-y-auto overflow-x-hidden">
           {/* Header */}
-          <div className="flex items-center justify-between border-b border-gray-200 p-6">
-            <h2 className="text-xl font-bold text-gray-900">
+          <div className="flex items-center justify-between border-b border-gray-200 p-4 sm:p-6">
+            <h2 className="text-lg sm:text-xl font-bold text-gray-900">
               Finaliser la commande
             </h2>
             <button
@@ -186,15 +200,15 @@ export default function PaymentModal({ isOpen, onClose, onSuccess }) {
           </div>
 
           {/* Code Promo */}
-          <div className="p-6 border-b border-gray-200">
+          <div className="p-4 sm:p-6 border-b border-gray-200">
             <h3 className="text-lg font-medium text-gray-900 mb-3">Code Promo</h3>
-            <div className="flex space-x-2">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-2">
               <input
                 type="text"
                 value={promoCode}
                 onChange={(e) => setPromoCode(e.target.value.toUpperCase())}
                 placeholder="Entrez votre code promo"
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-sm"
               />
               <button
                 type="button"
@@ -209,7 +223,7 @@ export default function PaymentModal({ isOpen, onClose, onSuccess }) {
                     }
                   }
                 }}
-                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap text-sm sm:flex-shrink-0"
               >
                 Appliquer
               </button>
@@ -218,12 +232,26 @@ export default function PaymentModal({ isOpen, onClose, onSuccess }) {
               <p className="text-red-600 text-sm mt-2">{promoError}</p>
             )}
             {promoSuccess && (
-              <p className="text-green-600 text-sm mt-2">{promoSuccess}</p>
+              <div className="flex items-center justify-between mt-2">
+                <p className="text-green-600 text-sm">{promoSuccess}</p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    resetPromo();
+                    setPromoCode('');
+                    setPromoSuccess('');
+                    setPromoError('');
+                  }}
+                  className="text-red-600 hover:text-red-800 text-sm underline"
+                >
+                  Supprimer
+                </button>
+              </div>
             )}
           </div>
 
           {/* Résumé de commande */}
-          <div className="p-6 border-b border-gray-200">
+          <div className="p-4 sm:p-6 border-b border-gray-200">
             <h3 className="text-lg font-medium text-gray-900 mb-3">Résumé de votre commande</h3>
             <div className="space-y-2">
               {items.map((item) => (
@@ -252,7 +280,7 @@ export default function PaymentModal({ isOpen, onClose, onSuccess }) {
           </div>
 
           {/* Formulaire */}
-          <form onSubmit={handleSubmit} className="p-6">
+          <form onSubmit={handleSubmit} className="p-4 sm:p-6">
             <div className="space-y-4">
               {/* Nom */}
               <div>

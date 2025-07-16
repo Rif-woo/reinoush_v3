@@ -4,7 +4,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request) {
   try {
-    const { client, items, totalPrice, location, orderDate } = await request.json();
+    const { client, items, subtotal, discount, totalPrice, appliedPromo, currency, location, orderDate } = await request.json();
     
     // Formatage de l'email
     const emailContent = {
@@ -36,8 +36,9 @@ export async function POST(request) {
               </thead>
               <tbody>
                 ${items.map(item => {
-                  const price = parseInt(item.price.replace(/[^\d]/g, '')) || 0;
-                  const subtotal = price * item.quantity;
+                  // Utiliser le prix unitaire depuis le contexte de pricing
+                  const unitPrice = item.unitPrice || 0;
+                  const itemSubtotal = unitPrice * item.quantity;
                   return `
                     <tr>
                       <td style="padding: 10px; border-bottom: 1px solid #eee;">
@@ -45,15 +46,25 @@ export async function POST(request) {
                         <small style="color: #666;">${item.type} • ${item.volume}</small>
                       </td>
                       <td style="padding: 10px; text-align: center; border-bottom: 1px solid #eee;">${item.quantity}</td>
-                      <td style="padding: 10px; text-align: right; border-bottom: 1px solid #eee;">${subtotal.toLocaleString()} Fcfa</td>
+                      <td style="padding: 10px; text-align: right; border-bottom: 1px solid #eee;">${itemSubtotal.toLocaleString()} ${currency === 'EUR' ? '€' : 'Fcfa'}</td>
                     </tr>
                   `;
                 }).join('')}
               </tbody>
               <tfoot>
+                <tr>
+                  <td colspan="2" style="padding: 10px; text-align: right; border-top: 1px solid #ddd;">Sous-total:</td>
+                  <td style="padding: 10px; text-align: right; border-top: 1px solid #ddd;">${subtotal.toLocaleString()} ${currency === 'EUR' ? '€' : 'Fcfa'}</td>
+                </tr>
+                ${appliedPromo ? `
+                  <tr style="color: #28a745;">
+                    <td colspan="2" style="padding: 10px; text-align: right;">Code promo (${appliedPromo}) - ${Math.round(discount * 100)}%:</td>
+                    <td style="padding: 10px; text-align: right;">-${(subtotal * discount).toLocaleString()} ${currency === 'EUR' ? '€' : 'Fcfa'}</td>
+                  </tr>
+                ` : ''}
                 <tr style="background-color: #f8f9fa; font-weight: bold;">
                   <td colspan="2" style="padding: 15px; text-align: right; border-top: 2px solid #333;">Total:</td>
-                  <td style="padding: 15px; text-align: right; border-top: 2px solid #333; font-size: 1.2em;">${totalPrice.toLocaleString()} Fcfa</td>
+                  <td style="padding: 15px; text-align: right; border-top: 2px solid #333; font-size: 1.2em;">${Math.round(totalPrice).toLocaleString()} ${currency === 'EUR' ? '€' : 'Fcfa'}</td>
                 </tr>
               </tfoot>
             </table>
