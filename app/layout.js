@@ -4,6 +4,7 @@ import "./globals.css";
 import { CartProvider } from '@/contexts/CartContext';
 import { CartNotificationProvider } from '@/contexts/CartNotificationContext';
 import { PricingProvider } from '@/contexts/PricingContext';
+import { PromoProvider } from '@/contexts/PromoContext';
 
 
 
@@ -26,11 +27,13 @@ export default function RootLayout({ children }) {
         className={`${anonymous.variable} antialiased`}
       >
         <PricingProvider>
-          <CartProvider>
-            <CartNotificationProvider>
-              {children}
-            </CartNotificationProvider>
-          </CartProvider>
+          <PromoProvider>
+            <CartProvider>
+              <CartNotificationProvider>
+                {children}
+              </CartNotificationProvider>
+            </CartProvider>
+          </PromoProvider>
         </PricingProvider>
       </body>
     </html>

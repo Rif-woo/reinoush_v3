@@ -2,9 +2,27 @@
 
 import { useState, useEffect } from 'react';
 import { useCart } from '@/contexts/CartContext';
+import { usePricing } from '@/contexts/PricingContext';
+import { usePromo } from '@/contexts/PromoContext';
 
 export default function PaymentModal({ isOpen, onClose, onSuccess }) {
-  const { items, totalPrice, clearCart } = useCart();
+  const { items, clearCart } = useCart();
+  const { getPriceNumeric, currency } = usePricing();
+  const { applyPromo, getDiscount, appliedPromo } = usePromo();
+  
+  // États pour le code promo
+  const [promoCode, setPromoCode] = useState('');
+  const [promoError, setPromoError] = useState('');
+  const [promoSuccess, setPromoSuccess] = useState('');
+  
+  // Calculer le total avec usePricing
+  const subtotal = items.reduce((total, item) => {
+    return total + (getPriceNumeric(item.volume) * item.quantity);
+  }, 0);
+  
+  // Appliquer la réduction
+  const discount = getDiscount();
+  const totalPrice = subtotal * (1 - discount);
   const [formData, setFormData] = useState({
     nom: '',
     prenom: '',
@@ -167,6 +185,43 @@ export default function PaymentModal({ isOpen, onClose, onSuccess }) {
             </button>
           </div>
 
+          {/* Code Promo */}
+          <div className="p-6 border-b border-gray-200">
+            <h3 className="text-lg font-medium text-gray-900 mb-3">Code Promo</h3>
+            <div className="flex space-x-2">
+              <input
+                type="text"
+                value={promoCode}
+                onChange={(e) => setPromoCode(e.target.value.toUpperCase())}
+                placeholder="Entrez votre code promo"
+                className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+              />
+              <button
+                type="button"
+                onClick={() => {
+                  if (promoCode.trim()) {
+                    if (applyPromo(promoCode.trim())) {
+                      setPromoError('');
+                      setPromoSuccess(`Code ${promoCode} appliqué avec succès !`);
+                    } else {
+                      setPromoError('Code promo invalide');
+                      setPromoSuccess('');
+                    }
+                  }
+                }}
+                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                Appliquer
+              </button>
+            </div>
+            {promoError && (
+              <p className="text-red-600 text-sm mt-2">{promoError}</p>
+            )}
+            {promoSuccess && (
+              <p className="text-green-600 text-sm mt-2">{promoSuccess}</p>
+            )}
+          </div>
+
           {/* Résumé de commande */}
           <div className="p-6 border-b border-gray-200">
             <h3 className="text-lg font-medium text-gray-900 mb-3">Résumé de votre commande</h3>
@@ -174,13 +229,25 @@ export default function PaymentModal({ isOpen, onClose, onSuccess }) {
               {items.map((item) => (
                 <div key={item.id} className="flex justify-between text-sm">
                   <span>{item.name} x{item.quantity}</span>
-                  <span>{(parseInt(item.price.replace(/[^\d]/g, '')) * item.quantity).toLocaleString()} Fcfa</span>
+                  <span>{(getPriceNumeric(item.volume) * item.quantity).toLocaleString()} {currency === 'EUR' ? '€' : 'Fcfa'}</span>
                 </div>
               ))}
             </div>
-            <div className="flex justify-between font-bold text-lg mt-3 pt-3 border-t">
-              <span>Total:</span>
-              <span>{totalPrice.toLocaleString()} Fcfa</span>
+            <div className="mt-3 pt-3 border-t space-y-2">
+              <div className="flex justify-between text-sm">
+                <span>Sous-total:</span>
+                <span>{subtotal.toLocaleString()} {currency === 'EUR' ? '€' : 'Fcfa'}</span>
+              </div>
+              {discount > 0 && (
+                <div className="flex justify-between text-sm text-green-600">
+                  <span>Réduction ({Math.round(discount * 100)}%):</span>
+                  <span>-{(subtotal * discount).toLocaleString()} {currency === 'EUR' ? '€' : 'Fcfa'}</span>
+                </div>
+              )}
+              <div className="flex justify-between font-bold text-lg pt-2 border-t">
+                <span>Total:</span>
+                <span>{Math.round(totalPrice).toLocaleString()} {currency === 'EUR' ? '€' : 'Fcfa'}</span>
+              </div>
             </div>
           </div>
 
