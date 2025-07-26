@@ -344,7 +344,7 @@ export default function NoteOlfactive() {
             />
             
             <NotesSection 
-              title="Notes de tete" 
+              title="Notes de tête" 
               notes={currentProduct.note_de_tete}
             />
             
