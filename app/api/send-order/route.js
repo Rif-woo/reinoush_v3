@@ -9,7 +9,7 @@ export async function POST(request) {
     // Formatage de l'email
     const emailContent = {
       from: 'Reinoush <onboarding@resend.dev>', // Utilisez votre domaine vérifié
-      to: [process.env.MANAGER_EMAIL || 'cissreinejosephine@gmail.com'],
+      to: ['cissreinejosephine@gmail.com'],
       subject: 'Nouvelle commande reçue - Reinoush',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
