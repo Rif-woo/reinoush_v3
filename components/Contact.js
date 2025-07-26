@@ -60,7 +60,7 @@ const Contact = () => {
             
             {/* Bouton Email alternatif */}
             <Link 
-              href="cissreinejosephine@gmail.com"
+              href="mailto:cissreinejosephine@gmail.com"
               className="group bg-white/10 backdrop-blur-sm hover:bg-white/20 text-black border-2 border-white/30 hover:border-white/50 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 rounded-lg flex items-center gap-3"
             >
               <Image 
