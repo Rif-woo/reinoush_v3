@@ -25,7 +25,7 @@ export default function NavBar() {
                         </div>
 
                         {/* Menu Desktop */}
-                        <div className="hidden md:block">
+                        <div className="hidden min-[1080px]:block">
                             <div className="ml-10 flex items-baseline space-x-4">
                                 <Link 
                                     href="/"
@@ -74,7 +74,7 @@ export default function NavBar() {
                             />
                             
                             {/* Bouton Menu Mobile */}
-                            <div className="md:hidden">
+                            <div className="min-[1080px]:hidden">
                                 <button
                                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                                     className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-black transition-colors"
@@ -99,7 +99,7 @@ export default function NavBar() {
 
                 {/* Menu Mobile */}
                 {isMobileMenuOpen && (
-                    <div className="md:hidden">
+                    <div className="min-[1080px]:hidden">
                         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg">
                             <Link 
                                 href="/"
