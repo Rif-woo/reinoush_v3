@@ -5,7 +5,7 @@ import { CartProvider } from '@/contexts/CartContext';
 import { CartNotificationProvider } from '@/contexts/CartNotificationContext';
 import { PricingProvider } from '@/contexts/PricingContext';
 import { PromoProvider } from '@/contexts/PromoContext';
-
+import { Analytics } from "@vercel/analytics/next"
 
 
 const anonymous = Poppins({
@@ -31,6 +31,7 @@ export default function RootLayout({ children }) {
             <CartProvider>
               <CartNotificationProvider>
                 {children}
+                <Analytics/>
               </CartNotificationProvider>
             </CartProvider>
           </PromoProvider>

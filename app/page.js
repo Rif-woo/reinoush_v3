@@ -16,8 +16,7 @@ export default function Home() {
   return (
     <div>
       <header className="w-full h-full flex flex-col gap-20 p-5 pb-20 pt-0">
-            <NavBar></NavBar>
-
+        <NavBar></NavBar>
         <HeroSection></HeroSection>
       </header>
         <HeroSectionSeparator></HeroSectionSeparator>
