@@ -8,8 +8,8 @@ const PromoContext = createContext();
 export function PromoProvider({ children }) {
   // Codes promo et réductions associées
   const [promos, setPromos] = useState({
-    'ANNIVREINOUSH': 0.10,  // 10% de réduction
-  });
+      // 10% de réduction
+});
 
   // Code promo actuellement appliqué
   const [appliedPromo, setAppliedPromo] = useState(null);
