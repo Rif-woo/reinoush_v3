@@ -50,7 +50,7 @@ export default function HuileParfumeePage() {
       <div className="text-center py-8 sm:py-12 px-4">
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-4">Nos Huiles Parfumées</h1>
         <p className="text-base sm:text-lg text-gray-700 max-w-2xl sm:max-w-3xl mx-auto leading-relaxed">
-          Découvrez notre collection exclusive d'huiles parfumées, créées avec
+          Découvrez notre collection exclusive d&apos;huiles parfumées, créées avec
           <span className="hidden sm:inline"><br /></span>
           <span className="sm:hidden"> </span>
           des ingrédients naturels pour une fragrance authentique et durable.
