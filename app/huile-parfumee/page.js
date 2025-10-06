@@ -3,39 +3,39 @@
 import { useState } from 'react';
 import NavBar from '@/components/NavBar';
 import ProductCard from '@/components/ui/ProductCard';
-import HeroSectionSeparator from '@/components/ui/separator';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { usePricing } from '@/contexts/PricingContext';
 
-// Données des parfums femme
-const femmeProductsData = [
-    { id: 1, name: "Grâce", image: "/parfums/Grace50.PNG", type: "Femme", volume: "50ml", category: "nouveau", isNew: true },
-    { id: 2, name: "Coco Jojo", image: "/parfums/CocoJojo50.PNG", type: "Femme", volume: "50ml", category: "nouveau", isNew: true },
-    { id: 3, name: "Grâce", image: "/parfums/Grace.webp", type: "Femme", volume: "30ml", category: "bestseller" },
-    { id: 4, name: "Coco Jojo", image: "/parfums/coco.webp", type: "Femme", volume: "30ml", category: "bestseller" },
-    { id: 5, name: "Divine", image: "/parfums/Divine50.PNG", type: "Femme", volume: "50ml", category: "nouveau", isNew: true},
-    { id: 6, name: "Divine", image: "/parfums/Divine.webp", type: "Femme", volume: "30ml", category: "bestseller"},
+
+// Données des huiles parfumées
+const huileProductsData = [
+    { id: 1, name: "Divine", image: "/huile5mlDivine-removebg.png", type: "huile", volume: "5ml", category: "nouveau", isNew: false },
+    { id: 2, name: "Grâce", image: "/huile5mlGrace-removebg.png", type: "huile", volume: "5ml", category: "nouveau", isNew: false },
+    { id: 3, name: "Coco Jojo", image: "/huile5mlCocoJoja-removebg.png", type: "huile", volume: "5ml", category: "nouveau", isNew: false },
+    { id: 4, name: "Divine", image: "/huileDivine.png", type: "huile", volume: "10ml", category: "bestseller", isNew: false },
+    { id: 5, name: "Grâce", image: "/huileGrace.png", type: "huile", volume: "10ml", category: "bestseller", isNew: false },
+    { id: 6, name: "Coco Jojo", image: "/huileCocoJojo.png", type: "huile", volume: "10ml", category: "bestseller", isNew: false },
 ];
 
-export default function ParfumFemmePage() {
+export default function HuileParfumeePage() {
   const [priceFilter, setPriceFilter] = useState('all');
   const [volumeFilter, setVolumeFilter] = useState('all');
   const { getPriceNumeric, currency } = usePricing();
 
   // Filtrer les produits
-  const filteredProducts = femmeProductsData.filter(product => {
+  const filteredProducts = huileProductsData.filter(product => {
     const productPrice = getPriceNumeric(product.volume);
     const priceMatch = priceFilter === 'all' || 
-      (priceFilter === '50ml' && product.volume === '50ml') ||
-      (priceFilter === '30ml' && product.volume === '30ml');
+      (priceFilter === '10ml' && product.volume === '10ml') ||
+      (priceFilter === '5ml' && product.volume === '5ml');
     const volumeMatch = volumeFilter === 'all' || product.volume === volumeFilter;
     
     return priceMatch && volumeMatch;
   });
 
   // Séparer les produits par catégorie pour l'affichage
-  const bestSellers = femmeProductsData.filter(p => p.category === 'bestseller');
-  const nouveautes = femmeProductsData.filter(p => p.category === 'nouveau');
+  const bestSellers = huileProductsData.filter(p => p.category === 'bestseller');
+  const nouveautes = huileProductsData.filter(p => p.category === 'nouveau');
   const allProducts = filteredProducts;
 
   return (
@@ -48,12 +48,12 @@ export default function ParfumFemmePage() {
 
       {/* Header de la page */}
       <div className="text-center py-8 sm:py-12 px-4">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-4">Tous nos Produits Femme</h1>
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-4">Nos Huiles Parfumées</h1>
         <p className="text-base sm:text-lg text-gray-700 max-w-2xl sm:max-w-3xl mx-auto leading-relaxed">
-          Découvrez notre collection exclusive de parfums féminins, créés avec
+          Découvrez notre collection exclusive d'huiles parfumées, créées avec
           <span className="hidden sm:inline"><br /></span>
           <span className="sm:hidden"> </span>
-          passion pour révéler votre élégance naturelle.
+          des ingrédients naturels pour une fragrance authentique et durable.
         </p>
         <div className="w-16 sm:w-24 h-px bg-black mx-auto mt-4 sm:mt-6"></div>
       </div>
@@ -70,8 +70,8 @@ export default function ParfumFemmePage() {
               className="border border-gray-300 rounded-md px-3 py-1 text-sm bg-white"
             >
               <option value="all">Tous les prix</option>
-              <option value="50ml">{getPriceNumeric('50ml')} {currency === 'EUR' ? '€' : 'Fcfa'} (50ml)</option>
-              <option value="30ml">{getPriceNumeric('30ml')} {currency === 'EUR' ? '€' : 'Fcfa'} (30ml)</option>
+              <option value="10ml">{getPriceNumeric('10ml')} {currency === 'EUR' ? '€' : 'Fcfa'} (10ml)</option>
+              <option value="5ml">{getPriceNumeric('5ml')} {currency === 'EUR' ? '€' : 'Fcfa'} (5ml)</option>
             </select>
           </div>
 
@@ -84,8 +84,8 @@ export default function ParfumFemmePage() {
               className="border border-gray-300 rounded-md px-3 py-1 text-sm bg-white"
             >
               <option value="all">Tous les volumes</option>
-              <option value="30ml">30ml</option>
-              <option value="50ml">50ml</option>
+              <option value="5ml">5ml</option>
+              <option value="10ml">10ml</option>
             </select>
           </div>
         </div>
@@ -108,7 +108,8 @@ export default function ParfumFemmePage() {
                 ProductVolume={product.volume}
                 isNew={product.isNew}
                 isHomePage={false}
-                productType="parfum"
+                hasBackground={false}
+                productType="huile"
               />
             </div>
           ))}
@@ -116,7 +117,7 @@ export default function ParfumFemmePage() {
       </div>
 
       {/* Section Nouveautés */}
-      <div className="max-w-6xl max-md:px-1 px-4 mx-auto py-8">
+      {/* <div className="max-w-6xl max-md:px-1 px-4 mx-auto py-8">
         <div className="flex items-center gap-3 mb-8">
           <SectionTitle title="Nouveautés" seeAll={false}></SectionTitle>
           
@@ -132,17 +133,18 @@ export default function ParfumFemmePage() {
                 ProductVolume={product.volume}
                 isNew={product.isNew}
                 isHomePage={false}
-                productType="parfum"
+                hasBackground={false}
+                productType="huile"
               />
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
-      {/* Section Tous Nos Produits */}
+      {/* Section Toutes Nos Huiles Parfumées */}
       <div className="max-w-6xl max-md:w-full max-md:px-1 mx-auto px-4 py-8">
         <div className="flex items-center gap-3 mb-8">
-          <SectionTitle title="Tous Nos Produits Femme" seeAll={false}></SectionTitle>
+          <SectionTitle title="Toutes Nos Huiles Parfumées" seeAll={false}></SectionTitle>
         </div>
         
         <div className="w-full flex flex-wrap max-md:justify-around sm:justify-start  gap-4 sm:gap-6">
@@ -155,7 +157,8 @@ export default function ParfumFemmePage() {
                   ProductVolume={product.volume}
                   isNew={product.isNew}
                   isHomePage={false}
-                  productType="parfum"
+                  hasBackground={false}
+                  productType="huile"
                 />
               </div>
           ))}

@@ -10,7 +10,9 @@ export default function ProductCard({
     ProductType = "Femme", 
     ProductVolume = "50ml", 
     isNew = false,
-    isHomePage = true
+    isHomePage = true,
+    hasBackground = true, // Controls whether to show black background or light background for huile products
+    productType = "parfum" // "parfum" ou "huile"
 
 }) {
     const { addItem } = useCart();
@@ -32,8 +34,14 @@ export default function ProductCard({
         showNotification(productName);
     };
     
+    // Déterminer si c'est un produit huile
+    const isHuileProduct = productType === 'huile';
+    
     // Function to get the correct background color for product type
     const getTypeColor = (type) => {
+        if (isHuileProduct) {
+            return 'bg-[#FFF8E6]'; // Couleur marron pour les huiles parfumées
+        }
         switch(type?.toLowerCase()) {
             case 'femme':
                 return 'bg-[#F227A7]';
@@ -43,10 +51,18 @@ export default function ProductCard({
                 return 'bg-[#F227A7]';
         }
     };
+    
+    // Fonction pour obtenir le texte du type de produit
+    const getTypeText = (type) => {
+        if (isHuileProduct) {
+            return 'Huile Parfumée';
+        }
+        return type;
+    };
 
     return (
         <div className={`flex flex-col ${isHomePage ? 'w-[280px] sm:w-[350px] lg:w-[370px] h-[450px] sm:h-[500px] lg:h-[550px] max-md:w-[310px]' : 'w-[170px] sm:w-[220px] lg:w-[250px] h-[300px] sm:h-[350px] lg:h-[390px] border-2'} mx-auto `}>
-            <div className="relative w-full h-full p-3 bg-black flex">
+            <div className={`relative w-full h-full p-3 ${hasBackground ? 'bg-black' : 'bg-transparent border-1'} flex`}>
                 <div className="w-full flex justify-between">
                     {isNew && (
                         <div className={`z-10 ${isHomePage ? 'w-28 h-7' : 'w-fit h-fit sm:px-2'} rounded-md bg-black max-md:w-fit max-md:h-fit max-md:px-2 max-md:rounded-sm`}>
@@ -56,9 +72,9 @@ export default function ProductCard({
                     )}
                     {!isNew && <div></div>}
 
-                    <div className={`z-10 ${isHomePage ? 'w-28 h-7 ' : 'w-fit h-fit sm:px-2 '} rounded-md ${getTypeColor(ProductType)} max-md:w-fit max-md:h-fit max-md:px-2 max-md:rounded-sm`}>
+                    <div className={`z-10 ${isHomePage ? (isHuileProduct ? 'w-37 h-7 border-1' : 'w-28 h-7') : 'w-fit h-fit sm:px-2'} rounded-md ${getTypeColor(ProductType)} max-md:w-fit max-md:h-fit max-md:px-2 max-md:rounded-sm`}>
 
-                        <p className={`text-white ${isHomePage ? 'text-lg' : 'text-base max-md:text-[12px]'}  text-center`}>{ProductType}</p>
+                        <p className={`${isHuileProduct ? 'text-black' : 'text-white'} ${isHomePage ? 'text-lg' : 'text-base max-md:text-[10px]'}  text-center`}>{getTypeText(ProductType)}</p>
                     </div>
                 </div>
 
@@ -66,7 +82,7 @@ export default function ProductCard({
                     src={productImage}
                     alt={productName}
                     fill
-                    style={{ objectFit: 'cover', opacity: 0.8 }}
+                    style={{ objectFit: hasBackground ? 'cover' : 'contain', opacity: hasBackground ? 0.8 : 1 }}
                 />
             </div>
 

@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import HeroSection from "@/components/heroSection";
 import NavBar from "@/components/NavBar";
 import NoteOlfactive from "@/components/NoteOlfactive";
+import Nouveautes from "@/components/Nouveautes";
 import HeroSectionSeparator from "@/components/ui/separator";
 import Image from "next/image";
 
@@ -22,6 +23,7 @@ export default function Home() {
         <HeroSectionSeparator></HeroSectionSeparator>
       <main className="flex flex-col p-5 justify-center items-center gap-36">
         <BestSellers></BestSellers>
+        <Nouveautes></Nouveautes>
         <Categories></Categories>
         <NoteOlfactive></NoteOlfactive>
         <APropos></APropos>

@@ -9,17 +9,27 @@ import { usePricing } from '@/contexts/PricingContext';
 
 // Données de test pour les produits
 const productsData = [
-   { id: 2, name: "Divine", image: "/parfums/Divine50.PNG", type: "Femme", volume: "50ml", category: "nouveau", isNew: true },
-  { id: 3, name: "Coco Jojo", image: "/parfums/CocoJojo50.PNG", type: "Femme", volume: "50ml", category: "nouveau", isNew: true },
-  { id: 4, name: "Grâce", image: "/parfums/Grace50.PNG", type: "Femme", volume: "50ml", category: "nouveau", isNew: true },
-  { id: 1, name: "Grâce", image: "/parfums/Grace.webp", type: "Femme", volume: "30ml", category: "bestseller" },
-  { id: 5, name: "Divine", image: "/parfums/Divine.webp", type: "Femme", volume: "30ml", category: "all" },
-  { id: 6, name: "Coco Jojo", image: "/parfums/coco.webp", type: "Femme", volume: "30ml", category: "bestseller" },
-    { id: 7, name: "Mighty", image: "/parfums/Mighty50.PNG", type: "Homme", volume: "50ml", category: "nouveau",isNew: true },
-  { id: 8, name: "Favor", image: "/parfums/Favor50.PNG", type: "Homme", volume: "50ml", category: "nouveau" , isNew: true},
-  { id: 9, name: "Mighty", image: "/parfums/Mighty.webp", type: "Homme", volume: "30ml", category: "bestseller"},
-  { id: 10, name: "Favor", image: "/parfums/Favor.webp", type: "Homme", volume: "30ml", category: "bestseller"},
-
+  // Parfums Femme
+  { id: 2, name: "Divine", image: "/parfums/Divine50.PNG", type: "Femme", volume: "50ml", category: "nouveau", isNew: true, productType: "parfum" },
+  { id: 3, name: "Coco Jojo", image: "/parfums/CocoJojo50.PNG", type: "Femme", volume: "50ml", category: "nouveau", isNew: true, productType: "parfum" },
+  { id: 4, name: "Grâce", image: "/parfums/Grace50.PNG", type: "Femme", volume: "50ml", category: "nouveau", isNew: true, productType: "parfum" },
+  { id: 1, name: "Grâce", image: "/parfums/Grace.webp", type: "Femme", volume: "30ml", category: "bestseller", productType: "parfum" },
+  { id: 5, name: "Divine", image: "/parfums/Divine.webp", type: "Femme", volume: "30ml", category: "all", productType: "parfum" },
+  { id: 6, name: "Coco Jojo", image: "/parfums/coco.webp", type: "Femme", volume: "30ml", category: "bestseller", productType: "parfum" },
+  
+  // Parfums Homme
+  { id: 7, name: "Mighty", image: "/parfums/Mighty50.PNG", type: "Homme", volume: "50ml", category: "nouveau", isNew: true, productType: "parfum" },
+  { id: 8, name: "Favor", image: "/parfums/Favor50.PNG", type: "Homme", volume: "50ml", category: "nouveau", isNew: true, productType: "parfum" },
+  { id: 9, name: "Mighty", image: "/parfums/Mighty.webp", type: "Homme", volume: "30ml", category: "bestseller", productType: "parfum" },
+  { id: 10, name: "Favor", image: "/parfums/Favor.webp", type: "Homme", volume: "30ml", category: "bestseller", productType: "parfum" },
+  
+  // Huiles Parfumées
+  { id: 11, name: "Divine", image: "/huileDivine.png", type: "Femme", volume: "10ml", category: "nouveau", isNew: true, productType: "huile" },
+  { id: 12, name: "Grâce", image: "/huileGrace.png", type: "Femme", volume: "10ml", category: "nouveau", isNew: true, productType: "huile" },
+  { id: 13, name: "Coco Jojo", image: "/huileCocoJojo.png", type: "Femme", volume: "10ml", category: "nouveau", isNew: true, productType: "huile" },
+  { id: 14, name: "Divine", image: "/huile5mlDivine-removebg.png", type: "Femme", volume: "5ml", category: "nouveau", isNew: true, productType: "huile" },
+  { id: 15, name: "Grâce", image: "/huile5mlGrace-removebg.png", type: "Femme", volume: "5ml", category: "nouveau", isNew: true, productType: "huile" },
+  { id: 16, name: "Coco Jojo", image: "/huile5mlCocoJoja-removebg.png", type: "Femme", volume: "5ml", category: "nouveau", isNew: true, productType: "huile" },
 ];
 
 export default function ProduitsPage() {
@@ -31,7 +41,9 @@ export default function ProduitsPage() {
   const filteredProducts = productsData.filter(product => {
     const priceMatch = priceFilter === 'all' || 
       (priceFilter === '50ml' && product.volume === '50ml') ||
-      (priceFilter === '30ml' && product.volume === '30ml');
+      (priceFilter === '30ml' && product.volume === '30ml') ||
+      (priceFilter === '10ml' && product.volume === '10ml') ||
+      (priceFilter === '5ml' && product.volume === '5ml');
     const volumeMatch = volumeFilter === 'all' || product.volume === volumeFilter;
     
     return priceMatch && volumeMatch;
@@ -75,6 +87,8 @@ export default function ProduitsPage() {
               <option value="all">Tous les prix</option>
               <option value="50ml">{getPriceNumeric('50ml')} {currency === 'EUR' ? '€' : 'Fcfa'} (50ml)</option>
               <option value="30ml">{getPriceNumeric('30ml')} {currency === 'EUR' ? '€' : 'Fcfa'} (30ml)</option>
+              <option value="10ml">{getPriceNumeric('10ml')} {currency === 'EUR' ? '€' : 'Fcfa'} (10ml)</option>
+              <option value="5ml">{getPriceNumeric('5ml')} {currency === 'EUR' ? '€' : 'Fcfa'} (5ml)</option>
             </select>
           </div>
 
@@ -87,6 +101,8 @@ export default function ProduitsPage() {
               className="border border-gray-300 rounded-md px-3 py-2 text-sm bg-white flex-1 sm:flex-none min-w-[140px]"
             >
               <option value="all">Tous les volumes</option>
+              <option value="5ml">5ml</option>
+              <option value="10ml">10ml</option>
               <option value="30ml">30ml</option>
               <option value="50ml">50ml</option>
             </select>
@@ -110,6 +126,8 @@ export default function ProduitsPage() {
                 ProductVolume={product.volume}
                 isNew={product.isNew}
                 isHomePage={false}
+                hasBackground={product.productType === 'parfum'}
+                productType={product.productType}
               />
             </div>
           ))}
@@ -133,6 +151,8 @@ export default function ProduitsPage() {
                 ProductVolume={product.volume}
                 isNew={product.isNew}
                 isHomePage={false}
+                hasBackground={product.productType === 'parfum'}
+                productType={product.productType}
               />
             </div>
           ))}
@@ -149,14 +169,16 @@ export default function ProduitsPage() {
         <div className="w-full flex flex-wrap max-md:justify-around sm:justify-start gap-4 sm:gap-6">
           {allProducts.map((product) => (
             <div key={product.id} className="flex-shrink-0">
-              <ProductCard
-                productName={product.name}
-                productImage={product.image}
-                ProductType={product.type}
-                ProductVolume={product.volume}
-                isNew={product.isNew}
-                isHomePage={false}
-              />
+                <ProductCard
+                  productName={product.name}
+                  productImage={product.image}
+                  ProductType={product.type}
+                  ProductVolume={product.volume}
+                  isNew={product.isNew}
+                  isHomePage={false}
+                  hasBackground={product.productType === 'parfum'}
+                  productType={product.productType}
+                />
             </div>
           ))}
         </div>

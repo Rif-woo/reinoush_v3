@@ -98,6 +98,50 @@ export default function Categories() {
                         </p>
                     </div>
                 </div>
+
+                {/*  Section - Huile Parfumée */}
+                <div className="flex flex-col gap-4 lg:gap-6 w-full lg:w-auto">
+                    {/* Title and subtitle */}
+                    <div className="text-center lg:text-left">
+                        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-black mb-2 underline decoration-2 underline-offset-4">
+                            L’art des<br />huiles parfumées
+                        </h2>
+                        <p className="text-sm sm:text-base lg:text-lg text-black italic">
+                            Élégance - Douceur - Harmonie.
+                        </p>
+                    </div>
+                    
+                    {/* Product Image */}
+                    <div className="relative flex-1 group cursor-pointer border-1 mx-auto lg:mx-0">
+                        <div className="relative w-[250px] sm:w-[300px] lg:w-[350px] h-[300px] sm:h-[400px] lg:h-[500px] bg-black">
+                            <Image
+                                src="/huileDivineNoBg.PNG"
+                                alt="Grace Parfum Femme"
+                                fill
+                                style={{ objectFit: 'cover' }}
+                                className="transition-transform duration-300 group-hover:scale-105 opacity-80"
+                            />
+                        </div>
+                        
+                        {/* Bottom overlay with link */}
+                        <div className="absolute bottom-4 left-4">
+                            <Link 
+                                href="/huile-parfumee" 
+                                className="flex items-center gap-2 text-white text-sm sm:text-base lg:text-xl font-medium hover:underline"
+                            >
+                                <span>Huile Parfumée</span>
+                                <div className="relative w-4 h-4 sm:w-5 sm:h-5">
+                                    <Image
+                                        src="/arrow_right.svg"
+                                        alt="arrow svg"
+                                        fill
+                                        style={{ objectFit: 'contain' }}
+                                    />
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

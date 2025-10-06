@@ -46,6 +46,12 @@ export default function NavBar() {
                                     Parfum Femmes
                                 </Link>
                                 <Link 
+                                    href="/huile-parfumee"
+                                    className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                                >
+                                    Huile Parfumée
+                                </Link>
+                                <Link 
                                     href="/produits"
                                     className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
                                 >
@@ -121,6 +127,13 @@ export default function NavBar() {
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 Parfum Femme
+                            </Link>
+                            <Link 
+                                href="/huile-parfumee"
+                                className="text-black hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium transition-colors"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                Huile Parfumée
                             </Link>
                             <Link 
                                 href="/produits"

@@ -6,11 +6,15 @@ import { createContext, useContext, useEffect, useState } from 'react';
 const PRICING = {
   FCFA: {
     '50ml': 8000,
-    '30ml': 5000
+    '30ml': 5000,
+    '10ml': 1500,
+    '5ml': 1000
   },
   EUR: {
     '50ml': 30,
-    '30ml': 20
+    '30ml': 20,
+    '10ml': 12,
+    '5ml': 6
   }
 };
 
