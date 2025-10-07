@@ -24,12 +24,12 @@ const productsData = [
   { id: 10, name: "Favor", image: "/parfums/Favor.webp", type: "Homme", volume: "30ml", category: "bestseller", productType: "parfum" },
   
   // Huiles Parfumées
-  { id: 11, name: "Divine", image: "/huileDivine.png", type: "Femme", volume: "10ml", category: "nouveau", isNew: true, productType: "huile" },
-  { id: 12, name: "Grâce", image: "/huileGrace.png", type: "Femme", volume: "10ml", category: "nouveau", isNew: true, productType: "huile" },
-  { id: 13, name: "Coco Jojo", image: "/huileCocoJojo.png", type: "Femme", volume: "10ml", category: "nouveau", isNew: true, productType: "huile" },
-  { id: 14, name: "Divine", image: "/huile5mlDivine-removebg.png", type: "Femme", volume: "5ml", category: "nouveau", isNew: true, productType: "huile" },
-  { id: 15, name: "Grâce", image: "/huile5mlGrace-removebg.png", type: "Femme", volume: "5ml", category: "nouveau", isNew: true, productType: "huile" },
-  { id: 16, name: "Coco Jojo", image: "/huile5mlCocoJoja-removebg.png", type: "Femme", volume: "5ml", category: "nouveau", isNew: true, productType: "huile" },
+  { id: 11, name: "Divine", image: "/huileDivine.png", type: "huile", volume: "10ml", category: "nouveau", isNew: true, productType: "huile" },
+  { id: 12, name: "Grâce", image: "/huileGrace.png", type: "huile", volume: "10ml", category: "nouveau", isNew: true, productType: "huile" },
+  { id: 13, name: "Coco Jojo", image: "/huileCocoJojo.png", type: "huile", volume: "10ml", category: "nouveau", isNew: true, productType: "huile" },
+  { id: 14, name: "Divine", image: "/huile5mlDivine-removebg.png", type: "huile", volume: "5ml", category: "nouveau", isNew: true, productType: "huile" },
+  { id: 15, name: "Grâce", image: "/huile5mlGrace-removebg.png", type: "huile", volume: "5ml", category: "nouveau", isNew: true, productType: "huile" },
+  { id: 16, name: "Coco Jojo", image: "/huile5mlCocoJoja-removebg.png", type: "huile", volume: "5ml", category: "nouveau", isNew: true, productType: "huile" },
 ];
 
 export default function ProduitsPage() {
