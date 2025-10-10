@@ -37,19 +37,19 @@ export default function NavBar() {
                                     href="/parfum-homme"
                                     className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
                                 >
-                                    Parfum Hommes
+                                    Parfums Hommes
                                 </Link>
                                 <Link 
                                     href="/parfum-femme"
                                     className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
                                 >
-                                    Parfum Femmes
+                                    Parfums Femmes
                                 </Link>
                                 <Link 
                                     href="/huile-parfumee"
                                     className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
                                 >
-                                    Huile Parfumée
+                                    Huiles Parfumées
                                 </Link>
                                 <Link 
                                     href="/produits"
@@ -119,21 +119,21 @@ export default function NavBar() {
                                 className="text-black hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium transition-colors"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
-                                Parfum Homme
+                                Parfums Hommes
                             </Link>
                             <Link 
                                 href="/parfum-femme"
                                 className="text-black hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium transition-colors"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
-                                Parfum Femme
+                                Parfums Femmes
                             </Link>
                             <Link 
                                 href="/huile-parfumee"
                                 className="text-black hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium transition-colors"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
-                                Huile Parfumée
+                                Huiles Parfumées
                             </Link>
                             <Link 
                                 href="/produits"

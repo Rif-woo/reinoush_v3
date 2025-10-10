@@ -41,7 +41,7 @@ export default function Categories() {
                                 href="/parfum-femme" 
                                 className="flex items-center gap-2 text-white text-sm sm:text-base lg:text-xl font-medium hover:underline"
                             >
-                                <span>Parfum Femme</span>
+                                <span>Parfums Femmes</span>
                                 <div className="relative w-4 h-4 sm:w-5 sm:h-5">
                                     <Image
                                         src="/arrow_right.svg"
@@ -75,7 +75,7 @@ export default function Categories() {
                                 href="/parfum-homme" 
                                 className="flex items-center gap-2 text-white text-sm sm:text-base lg:text-xl font-medium hover:underline"
                             >
-                                <span>Parfum Homme</span>
+                                <span>Parfums Hommes</span>
                                 <div className="relative w-4 h-4 sm:w-5 sm:h-5">
                                 <Image
                                     src="/arrow_right_blue.svg"
@@ -129,7 +129,7 @@ export default function Categories() {
                                 href="/huile-parfumee" 
                                 className="flex items-center gap-2 text-white text-sm sm:text-base lg:text-xl font-medium hover:underline"
                             >
-                                <span>Huile Parfumée</span>
+                                <span>Huiles Parfumées</span>
                                 <div className="relative w-4 h-4 sm:w-5 sm:h-5">
                                     <Image
                                         src="/arrow_right.svg"

@@ -48,7 +48,7 @@ export default function ParfumFemmePage() {
 
       {/* Header de la page */}
       <div className="text-center py-8 sm:py-12 px-4">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-4">Tous nos Produits Femme</h1>
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-4">Tous nos Produits Femmes</h1>
         <p className="text-base sm:text-lg text-gray-700 max-w-2xl sm:max-w-3xl mx-auto leading-relaxed">
           Découvrez notre collection exclusive de parfums féminins, créés avec
           <span className="hidden sm:inline"><br /></span>

@@ -28,12 +28,17 @@ export default function Footer() {
                             </li>
                             <li>
                                 <Link href="/parfum-homme" className="text-gray-600 hover:text-black transition-colors">
-                                    Parfum Hommes
+                                    Parfums Hommes
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/parfum-femme" className="text-gray-600 hover:text-black transition-colors">
-                                    Parfum Femmes
+                                    Parfums Femmes
+                                </Link>
+                            </li>
+                              <li>
+                                <Link href="/huile-parfumee" className="text-gray-600 hover:text-black transition-colors">
+                                    Huiles Parfumées
                                 </Link>
                             </li>
                         </ul>
@@ -50,6 +55,11 @@ export default function Footer() {
                             <li>
                                 <Link href="/contact" className="text-gray-600 hover:text-black transition-colors">
                                     Contact
+                                </Link>
+                            </li>
+                             <li>
+                                <Link href="/produits" className="text-gray-600 hover:text-black transition-colors">
+                                    Tous nos Produits
                                 </Link>
                             </li>
                         </ul>
