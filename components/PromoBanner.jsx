@@ -8,21 +8,21 @@ export default function PromoBanner() {
   if (!isVisible) return null;
 
   return (
-    <div className="relative w-full bg-gradient-to-r from-[#C41E3A] via-[#165B33] to-[#C41E3A] text-white py-3 px-4 text-center overflow-hidden"
+    <div className="relative w-full bg-gradient-to-r from-[#C41E3A] via-[#165B33] to-[#C41E3A] text-white py-4 px-4 text-center overflow-hidden"
          style={{
            backgroundSize: '200% 200%',
            animation: 'christmasGradient 5s ease infinite',
          }}>
       {/* Effet de brillance animé */}
       <div
-        className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20 z-0"
         style={{
           animation: 'shine 3s infinite',
         }}
       />
 
       {/* Guirlandes décoratives en haut */}
-      <div className="absolute top-0 left-0 right-0 flex justify-around text-2xl" style={{ animation: 'sway 3s ease-in-out infinite' }}>
+      <div className="absolute top-0 left-0 right-0 flex justify-around text-2xl z-5" style={{ animation: 'sway 3s ease-in-out infinite' }}>
         <span>🎄</span>
         <span>⭐</span>
         <span>🎁</span>
@@ -33,7 +33,7 @@ export default function PromoBanner() {
         <span className="max-sm:hidden">🎁</span>
       </div>
 
-      <div className="relative z-10 flex items-center justify-center gap-2 flex-wrap">
+      <div className="relative z-20 flex items-center justify-center gap-2 flex-wrap pt-4 sm:pt-2">
         <span className="text-sm sm:text-base md:text-lg font-bold flex items-center gap-1">
           🎅 PROMOTION -10% avec le code
         </span>
