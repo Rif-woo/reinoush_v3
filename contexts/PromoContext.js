@@ -8,7 +8,7 @@ const PromoContext = createContext();
 export function PromoProvider({ children }) {
   // Codes promo et réductions associées
   const [promos, setPromos] = useState({
-      // 10% de réduction
+      'REINOUSH2025': 0.10, 
 });
 
   // Code promo actuellement appliqué
