@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useCart } from '@/contexts/CartContext';
 import { useCartNotification } from '@/contexts/CartNotificationContext';
 import { usePricing } from '@/contexts/PricingContext';
+import ChristmasCardDecor from '@/components/ChristmasCardDecor';
 
 export default function ProductCard({
     productName = "Grâce", 
@@ -61,7 +62,8 @@ export default function ProductCard({
     };
 
     return (
-        <div className={`flex flex-col ${isHomePage ? 'w-[280px] sm:w-[350px] lg:w-[370px] h-[450px] sm:h-[500px] lg:h-[550px] max-md:w-[310px]' : 'w-[170px] sm:w-[220px] lg:w-[250px] h-[300px] sm:h-[350px] lg:h-[390px] border-2'} mx-auto `}>
+        <div className={`relative flex flex-col ${isHomePage ? 'w-[280px] sm:w-[350px] lg:w-[370px] h-[450px] sm:h-[500px] lg:h-[550px] max-md:w-[310px]' : 'w-[170px] sm:w-[220px] lg:w-[250px] h-[300px] sm:h-[350px] lg:h-[390px] border-2'} mx-auto `}>
+            <ChristmasCardDecor />
             <div className={`relative w-full h-full p-3 ${hasBackground ? 'bg-black' : 'bg-transparent border-1'} flex`}>
                 <div className="w-full flex justify-between">
                     {isNew && (

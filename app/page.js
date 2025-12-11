@@ -14,11 +14,13 @@ import HeroSectionSeparator from "@/components/ui/separator";
 import ChristmasSnowflakes from "@/components/ChristmasSnowflakes";
 import ChristmasMessage from "@/components/ChristmasMessage";
 import ChristmasCorners from "@/components/ChristmasCorners";
+import PromoBanner from "@/components/PromoBanner";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <div>
+      <PromoBanner />
       <ChristmasMessage />
       <header className="relative w-full h-full flex flex-col gap-20 p-5 pb-20 pt-0">
         <ChristmasSnowflakes />
