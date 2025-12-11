@@ -37,3 +37,37 @@ body {
 .animate-slide-up {
   animation: slideUp 0.3s ease-out;
 }
+
+/* Animations de Noël */
+@keyframes snowfall {
+  to {
+    transform: translateY(100vh) translateX(var(--tx, 0px)) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes gentle-swing {
+  0%, 100% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+@keyframes subtle-twinkle {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.snowflake {
+  position: fixed;
+  color: white;
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform;
+}

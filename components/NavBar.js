@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from 'react';
 import CartIcon from './CartIcon';
 import Cart from './Cart';
+import ChristmasDecor from './ChristmasDecor';
 
 export default function NavBar() {
     const [isCartOpen, setIsCartOpen] = useState(false);
@@ -11,17 +12,18 @@ export default function NavBar() {
     
     return (
         <>
-            <nav className="bg-[#FCFAF5] shadow-sm">
+            <nav className="sticky top-0 z-50 bg-[#FCFAF5] shadow-sm">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
                         {/* Logo */}
-                        <div className="flex-shrink-0">
-                            <Link 
+                        <div className="flex-shrink-0 flex items-center">
+                            <Link
                                 href="/"
                                 className="text-black text-xl sm:text-2xl lg:text-3xl font-bold"
                             >
                                 REINOUSH
                             </Link>
+                            <ChristmasDecor />
                         </div>
 
                         {/* Menu Desktop */}

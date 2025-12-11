@@ -12,10 +12,16 @@ module.exports = {
         primaryBG: "#FCFAF5",     // Exemple : un bleu perso
         buttonBG: "#FFF8E6",   // Exemple : un jaune
         accent: "#000000",      // Exemple : un vert
-        // Ajoute d’autres couleurs ici
+        // Ajoute d'autres couleurs ici
+        'christmas-gold': '#FFD700',
+        'christmas-white': '#FFFFFF',
       },
       fontFamily: {
         anon: ['var(--font-anon)', 'monospace'],
+      },
+      animation: {
+        'gentle-swing': 'gentle-swing 3s ease-in-out infinite',
+        'subtle-twinkle': 'subtle-twinkle 1.5s ease-in-out infinite',
       },
     },
   },
