@@ -13,19 +13,15 @@ import Nouveautes from "@/components/Nouveautes";
 import HeroSectionSeparator from "@/components/ui/separator";
 import ChristmasSnowflakes from "@/components/ChristmasSnowflakes";
 import ChristmasMessage from "@/components/ChristmasMessage";
-import ChristmasLights from "@/components/ChristmasLights";
-import ChristmasStars from "@/components/ChristmasStars";
 import ChristmasCorners from "@/components/ChristmasCorners";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <div>
-      <ChristmasSnowflakes />
-      <ChristmasLights />
       <ChristmasMessage />
       <header className="relative w-full h-full flex flex-col gap-20 p-5 pb-20 pt-0">
-        <ChristmasStars />
+        <ChristmasSnowflakes />
         <ChristmasCorners />
         <NavBar></NavBar>
         <HeroSection></HeroSection>

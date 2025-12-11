@@ -27,7 +27,7 @@ export default function ChristmasSnowflakes() {
       snowflake.textContent = '❄';
       snowflake.style.left = `${Math.random() * 100}%`;
       snowflake.style.fontSize = `${Math.random() * 1 + 0.5}em`;
-      snowflake.style.opacity = Math.random() * 0.4 + 0.3;
+      snowflake.style.opacity = Math.random() * 0.2 + 0.15;
 
       container.appendChild(snowflake);
       snowflakes.push(snowflake);
