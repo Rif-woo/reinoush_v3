@@ -11,18 +11,11 @@ import NavBar from "@/components/NavBar";
 import NoteOlfactive from "@/components/NoteOlfactive";
 import Nouveautes from "@/components/Nouveautes";
 import HeroSectionSeparator from "@/components/ui/separator";
-import ChristmasSnowflakes from "@/components/ChristmasSnowflakes";
-import ChristmasMessage from "@/components/ChristmasMessage";
-import ChristmasCorners from "@/components/ChristmasCorners";
-import Image from "next/image";
 
 export default function Home() {
   return (
     <div>
-      <ChristmasMessage />
       <header className="relative w-full h-full flex flex-col gap-20 p-5 pb-20 pt-0">
-        <ChristmasSnowflakes />
-        <ChristmasCorners />
         <NavBar></NavBar>
         <HeroSection></HeroSection>
       </header>

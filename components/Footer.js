@@ -69,7 +69,7 @@ export default function Footer() {
                     <div className="text-center md:text-left">
                         <h3 className="text-lg font-semibold mb-4 text-black">Réseaux sociaux</h3>
                         <div className="flex justify-center md:justify-start space-x-4">
-                            <Link href="https://www.instagram.com/reinoushh?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" className="hover:opacity-80 transition-opacity">
+                            <Link href="https://www.instagram.com/reiinoushh" target="_blank" className="hover:opacity-80 transition-opacity">
                                 <Image
                                     src="/instagram.svg"
                                     alt="Instagram"
@@ -85,7 +85,7 @@ export default function Footer() {
                                     height={24}
                                 />
                             </Link>
-                            <Link href="#" target="_blank" className="hover:opacity-80 transition-opacity">
+                            <Link href="https://www.facebook.com/profile.php?id=61561506902241" target="_blank" className="hover:opacity-80 transition-opacity">
                                 <Image
                                     src="/facebook.svg"
                                     alt="Facebook"
